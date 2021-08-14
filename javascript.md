@@ -188,4 +188,23 @@ Lifecycle of a promise = PENDING - SETTLED - FULLFILLED OR REJECTED
 //how async javascript works behind the scenes? 
 Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first 
 
-//Prototypes
+**Getters&Setters**
+classess and object literals have getters and setters. Can be very useful for data validations. Provides a simpler syntax. 
+
+**Static methods** 
+Array.from(document.querySelector('h1')) is a static method
+Number.parseFloaT(12) - method on Number. 
+
+
+**prototype, class, object.new**
+do the same thing! but this one is the least used oout of these three
+const protoObj = { 
+    calcAge() {
+        console.log(2037-this.birthYear)
+    }
+ }
+ const steven = Object.create(PersonProto);
+ steven.name = 'Steven'
+ steven.birthYear = 2000;
+ const steven = Object.create(PesonProto);
+ steven.--proto__ -> we will see the calcAge()
