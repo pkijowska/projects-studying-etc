@@ -1,5 +1,5 @@
 **JAVASCRIPT:**
-
+---
 Low level language: Developer has to manage resources manually (C)
 High level - developer does not have to worry, everything happens automatically (JS)
 
@@ -139,10 +139,10 @@ Objects are building blocks of applications and interact with each other
 Interaction happen through a public interface (API): methods that the code outside of the object can access and use to communicate with object. 
 OOP was developed to organise code and easier to maintain
 OOP paragdims:
-Abstraction: Ignoring or hiding details that don’t matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that don’t really matter to our implementation. //addEventListener - we don’t know how it works but we don’t care
-Encapsulation: Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface(API).Prevent external code from accidentaly manipulating internal state. 
-Inheritance: child class extends parent class. Reuse common logic and to model real world relationship. 
-Polymporishm: A child class can overwrite a method it inherited
+- Abstraction: Ignoring or hiding details that don’t matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that don’t really matter to our implementation. //addEventListener - we don’t know how it works but we don’t care
+- Encapsulation: Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface(API).Prevent external code from accidentaly manipulating internal state. 
+- Inheritance: child class extends parent class. Reuse common logic and to model real world relationship. 
+- Polymporishm: A child class can overwrite a method it inherited
 
  from a parent class. 
 
@@ -179,13 +179,13 @@ Const Jonas = new Person(‘Jonas’, 1991);
 //{} linked to prototype. IT WILL LINK THE NEW TO THE PROTOTYPE OF THE OBJECT
 //Function automatically return {}
 
-//callback hell.How to avoid? Using promises and fetch api
+**callback hell.How to avoid? Using promises and fetch api**
 
-//PROMISE - es6
+**PROMISE - es6**
 An object that is used as a placeholder for the future result of an async operation. (Like a lottery ticket, you buy ticket and if I win I get the ticket). By using promises you can chain promises instead of callback hell. 
 Lifecycle of a promise = PENDING - SETTLED - FULLFILLED OR REJECTED
 
-//how async javascript works behind the scenes? 
+**how async javascript works behind the scenes?** 
 Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first 
 
 **Getters&Setters**
@@ -208,3 +208,5 @@ const protoObj = {
  steven.birthYear = 2000;
  const steven = Object.create(PesonProto);
  steven.--proto__ -> we will see the calcAge()
+
+---
