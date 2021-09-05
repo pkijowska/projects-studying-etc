@@ -1,10 +1,10 @@
 **JAVASCRIPT:**
 ---
 Javascript engine (for example Tamarin, V8, Chakra, Spidermonkey, written in c++) - so js runs asap on the browser on engine. Breaks the code in the tokens to understand what it means. 
-Interpreter - translate and read files line by line
+Interpreter - translate and read files line by line. Runs faster but no optimisation. 
 Complier - compiles down to the language that can be understood by our machine. Will write it in a new language ahead of the time. Tries to undertsnd what we try to do to a lower level code. All languages have to be compiled. 
-Babel and typescript are compilers. They take one language and convert into a different one. 
-
+Babel and typescript are compilers. They take one language and convert into a different one. They also do optimisation behind the scene. Slower to run at first. 
+JIT Compliers - browsers started implementing it, combination of compilers and interpreter. 
 
 Low level language: Developer has to manage resources manually (C)
 High level - developer does not have to worry, everything happens automatically (JS)
@@ -224,6 +224,11 @@ import and exports possible
 top level variable scoped to module - in a script it will be global
 top level 'this' points to undefined, in a script it will point to a window
 modules are imported synchronously
- import './shoppingCart.js'
+> import './shoppingCart.js'
 
- 
+**npm** 
+1. having js in our html is messy
+2. If there is an upgrade of e.g jquery we would need to update it manually 
+
+**Copy Object**
+Object.assign({}, state);
