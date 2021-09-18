@@ -11,3 +11,9 @@ based on the state of the app react to it.
 What does react do? It translates the code we have in src into public folder (that's what our browsers understand). Will create build folder which is optimised (will use babel and webpack). Babel will make sure our js will be understood by different browsers. Webpack 
 
 By using class component we will have an access to something called STATE that we don't have an access to in funcitonal componenets
+
+for lifecycle methods:
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+componentDidMount - after render, after the page has been rendered. Base component is loaded. This is where we do api calls. 
+componentDidUpdate - is is already mounted so no need for that but needs an update. 
+shouldcomponentUpdate - evaluate if we should update (it is mainly used for performance)
