@@ -17,3 +17,4 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 componentDidMount - after render, after the page has been rendered. Base component is loaded. This is where we do api calls. 
 componentDidUpdate - is is already mounted so no need for that but needs an update. 
 shouldcomponentUpdate - evaluate if we should update (it is mainly used for performance)
+componentWillUnmount - if something is not rendered than it will do this

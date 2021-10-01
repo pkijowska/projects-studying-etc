@@ -14,7 +14,7 @@ JS is interpreted or just-in-time compiled - it interprets 0 and 1
 Multi-paradigm - 1. Procedual programming, OOP, FP - > javascript can be all of them
 Almost everything is an Object - except from primitives 
 First class functions - function streamed as variables, we can pass them etc
-JS Is single threaded - takes one thing at a time, otherwise we need to use event loop
+JS Is single threaded - takes one thing at a time (we have one call stack), otherwise we need to use event loop
 JUST IN TIME COMPILATION- entire code is converted into machine code at once, then executed immediately
 HAs access to web API, through global window object 
 Also access to callback queues, event loppp - manages callback queue
@@ -25,7 +25,7 @@ Execution context = environment in which a piece of js is executed, stores all t
 				this keyword 
 				ARROW FUNCTION DONT GET ACCESS TO ARGUMENTS OBJECT AND THIS KEYWORD
 
-CALL STACK : place where execution context get stacked on top of each other, to keep track of where we are in the execution
+CALL STACK : where you are in your program. Place where execution context get stacked on top of each other, to keep track of where we are in the execution
 			code runs in the call stack
 
 SCOPE: 3 types of scope - global scope, function scope (variables only accessible inside), block scope (variables are accessible only inside block, so between {} HOWEVER this only applies to let and const! 
@@ -232,3 +232,19 @@ modules are imported synchronously
 
 **Copy Object**
 Object.assign({}, state);
+
+**Memory leak**
+unused memory  (global variables are bad - we filled memory )
+
+**Javascript Environment**
+Is included in a browser. It has extra things like web APIs (DOM, AJAX, Timeout)
+Callback Queue and Event Loop.
+settimeout triggers webapi
+
+call stack -< webapi -> callback queue -> event loop(check if the call back is empty)
+console.log('1')
+setTImetout, 0
+console.log('2')
+
+first will be console.log 1, then, 2 then settimeout 
+coz settimeout needs to go from call stack to webapi, and call stack will be empty in the meantime so console.log will jump in there
