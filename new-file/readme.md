@@ -9,13 +9,13 @@
 
 ## Phase 2
 
-- [] Add a block on the right side where you can see all possible shapes
-- [] Investigate creating unusual shapes and moving them to the file
-- [] Move the block left and right
-- [] Create interval so it goes down
+- [ ] Add a block on the right side where you can see all possible shapes
+- [ ] Investigate creating unusual shapes and moving them to the file
+- [ ] Move the block left and right
+- [ ] Create interval so it goes down
 
 ## Phase 3
-- [] Randomly select different shapes
-- [] Move them around (key up)
-- [] They should fit together neatly
-- [] If there is one line fully taken, add a point, move the line down
+- [ ] Randomly select different shapes
+- [ ] Move them around (key up)
+- [ ] They should fit together neatly
+- [ ] If there is one line fully taken, add a point, move the line down
