@@ -1,11 +1,10 @@
-# TETRIS GAME
+# TETRIS GAME :video_game:
 
-1. Add styling and html
-2. Add a cubicle
-3. Move cubicle
-4. Create a block for the tetris puzzles to move
-5. if it is down it shoud stay there
-
+- [x] Add styling and html
+- [x] Add a cubicle
+- [x] Move cubicle
+- [x] Create a block for the tetris puzzles to move
+- [x] if it is down it shoud stay there
 
 ## Phase 2
 
