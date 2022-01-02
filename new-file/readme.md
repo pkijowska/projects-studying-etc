@@ -7,6 +7,8 @@
 - [x] Create a block for the tetris puzzles to move inside (it should not go outside it)
 - [x] if it is down it should stay there (on the bottom)
 
+After this phase it looks like : ![tetris image](/tetris.png)
+
 ## Phase 2
 
 - [ ] Add a block on the right side where you can see all possible shapes
