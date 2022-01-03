@@ -10,14 +10,13 @@
 After this phase it looks like : ![tetris image](tetris.png)
 
 ## Phase 2
-
-- [ ] Add a block on the right side where you can see all possible shapes
-- [ ] Investigate creating unusual shapes and moving them to the file
-- [ ] Move the block left and right
-- [ ] Create interval so it goes down
+- [ ] Investigate creating unusual shapes and moving them to the file so they can stick together neatly
+- [x] Move the block left and right
+- [x] Move them around (key up)
+- [x] Create interval so it goes down
 
 ## Phase 3
+- [ ] Add a block on the right side where you can see all possible shapes
 - [ ] Randomly select different shapes
-- [ ] Move them around (key up)
 - [ ] They should fit together neatly
 - [ ] If there is one line fully taken, add a point, move the line down
