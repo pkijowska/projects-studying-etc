@@ -10,7 +10,7 @@
 After this phase it looks like : ![tetris image](tetris.png)
 
 ## Phase 2
-- [ ] Investigate creating unusual shapes and moving them to the file so they can stick together neatly
+- [ ] Investigate creating unusual shapes and moving them to the file so they can stick together neatly - use HTML Canvas? 
 - [x] Move the block left and right
 - [x] Move them around (key up)
 - [x] Create interval so it goes down
