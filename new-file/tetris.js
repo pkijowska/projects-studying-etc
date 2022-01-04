@@ -47,3 +47,12 @@ startButton.addEventListener('click', function(){
     }, 1000);
 
 })
+
+const canvas = document.getElementById("tetris");
+const ctx = canvas.getContext("2d");
+
+const piece = [
+    [0, 0, 0],
+    [0, 1, 1],
+    [1, 1, 0],
+]

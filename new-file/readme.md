@@ -10,13 +10,16 @@
 After this phase it looks like : ![tetris image](tetris.png)
 
 ## Phase 2
-- [ ] Investigate creating unusual shapes and moving them to the file so they can stick together neatly - use HTML Canvas? 
+- [x] Investigate creating unusual shapes and moving them to the file so they can stick together neatly - use HTML Canvas?
 - [x] Move the block left and right
 - [x] Move them around (key up)
 - [x] Create interval so it goes down
 
 ## Phase 3
+- [ ] Implement HTML tetris shape Canvas (instead clipping it from phase 1)
 - [ ] Add a block on the right side where you can see all possible shapes
 - [ ] Randomly select different shapes
+
+## Phase 4
 - [ ] They should fit together neatly
 - [ ] If there is one line fully taken, add a point, move the line down
