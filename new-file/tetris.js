@@ -9,11 +9,39 @@ let posDown = 10;
 let posLeft = 10;
 let rotateNum = 90;
 
+const canvas = document.getElementById("tetris");
+const ctx = canvas.getContext("2d");
+
+const piece = [
+    [0, 0, 0],
+    [0, 1, 1],
+    [1, 1, 0],
+]
+
+const down = 20;
+const right = 20;
+
+function createElements(y) {
+  const double = x => x;
+  const doubledArray = piece.map( subarray => subarray.map( double ));
+
+  const elem = doubledArray.map(function(firstLayer, row) {
+    firstLayer.map(function(el, column) {
+      console.log(el, row, column)
+      if (el === 1) {
+        ctx.fillStyle = '#F9DC5C';
+        ctx.fillRect(100+(right*column), 20+(down*row)+y, 20, 20);
+      }
+    })
+  })
+}
+
 document.addEventListener("keydown", function(e) {
   if (e.key === 'ArrowDown' && para.getBoundingClientRect().bottom < 695)
   {
+    createElements(posDown)
     // para.getBoundingClientRect().y +1;
-    para.style.top = posDown + 20 + 'px';
+    // para.style.top = posDown + 20 + 'px';
     posDown = posDown + 20;
   }
 
@@ -46,30 +74,4 @@ startButton.addEventListener('click', function(){
       }
     }, 1000);
 
-})
-
-const canvas = document.getElementById("tetris");
-const ctx = canvas.getContext("2d");
-
-const piece = [
-    [0, 0, 0],
-    [0, 1, 1],
-    [1, 1, 0],
-]
-
-const down = 20;
-const right = 20;
-
-
-var double = x => x;
-var doubledArray = piece.map( subarray => subarray.map( double ));
-
-doubledArray.forEach(function(firstLayer, row) {
-  firstLayer.forEach(function(el, column) {
-    console.log(el, row, column)
-    if (el === 1) {
-      ctx.fillStyle = '#F9DC5C';
-      ctx.fillRect(100+(right*column), 20+(down*row), 20, 20);
-    }
-  })
 })
