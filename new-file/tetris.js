@@ -56,3 +56,20 @@ const piece = [
     [0, 1, 1],
     [1, 1, 0],
 ]
+
+const down = 20;
+const right = 20;
+
+
+var double = x => x;
+var doubledArray = piece.map( subarray => subarray.map( double ));
+
+doubledArray.forEach(function(firstLayer, row) {
+  firstLayer.forEach(function(el, column) {
+    console.log(el, row, column)
+    if (el === 1) {
+      ctx.fillStyle = '#F9DC5C';
+      ctx.fillRect(100+(right*column), 20+(down*row), 20, 20);
+    }
+  })
+})
