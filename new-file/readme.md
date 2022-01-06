@@ -15,7 +15,7 @@ After this phase it looks like : ![tetris image](tetris.png)
 - [x] Move them around (key up)
 - [x] Create interval so it goes down
 - [x] Implement HTML tetris shape Canvas (instead clipping it from phase 1)
-After this phase it looks like : ![tetris image](phase3)
+After this phase it looks like : ![tetris image](phase2)
 
 ## Phase 3
 - [ ] Generate different shapes with different colors and push to array 4 shapes
