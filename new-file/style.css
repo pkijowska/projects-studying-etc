@@ -20,19 +20,23 @@ body {
   justify-content: center;
 }
 
-.wrapper {
+#tetris {
+  border: 3px solid black;
+}
+
+/* .wrapper {
   margin: 0 auto;
   height: 500px;
   width: 600px;
   border: 3px solid black;
   position: absolute;
-}
+} */
 
-.firstElement {
+/* .firstElement {
   position:relative;
   top: 10px;
   height: 70px;
   width: 70px;
   background-color: pink;
   clip-path: polygon(50% 0%, 100% 0, 100% 26%, 28% 26%, 28% 70%, 27% 71%, 0 71%, 0% 70%, 0% 35%, 0 0);
-}
+} */

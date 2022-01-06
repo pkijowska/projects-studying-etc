@@ -1,16 +1,15 @@
 const para = document.createElement('div');
 para.className = 'firstElement'
 // const node = document.createTextNode("This is new.");
-const findWrapper = document.getElementsByClassName('wrapper')[0]
-findWrapper.appendChild(para);
+// const findWrapper = document.getElementsByClassName('wrapper')[0]
+// findWrapper.appendChild(para);
 
 //move the block
 let posDown = 10;
 let posLeft = 10;
 let rotateNum = 90;
 
-const canvas = document.getElementById("tetris");
-const ctx = canvas.getContext("2d");
+const ctx = document.getElementById("tetris").getContext("2d");
 
 const piece = [
     [0, 0, 0],
@@ -31,18 +30,27 @@ function createElements(y) {
       if (el === 1) {
         ctx.fillStyle = '#F9DC5C';
         ctx.fillRect(100+(right*column), 20+(down*row)+y, 20, 20);
+        // ctx.closePath();
+        // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        // ctx.restore();
       }
+
     })
   })
+}
+function clear() {
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
 document.addEventListener("keydown", function(e) {
   if (e.key === 'ArrowDown' && para.getBoundingClientRect().bottom < 695)
   {
-    createElements(posDown)
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    createElements(posDown);
     // para.getBoundingClientRect().y +1;
     // para.style.top = posDown + 20 + 'px';
     posDown = posDown + 20;
+    // requestAnimationFrame(clear);
   }
 
   if (e.key === 'ArrowRight' && para.getBoundingClientRect().right <= 778)
