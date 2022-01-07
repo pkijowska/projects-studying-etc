@@ -9,6 +9,7 @@ let posDown = 10;
 let posLeft = 10;
 let rotateNum = 90;
 
+const canvas = document.getElementById("tetris");
 const ctx = document.getElementById("tetris").getContext("2d");
 
 const piece = [
@@ -46,7 +47,19 @@ document.addEventListener("keydown", function(e) {
   if (e.key === 'ArrowDown' && para.getBoundingClientRect().bottom < 695)
   {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    // ctx.rotate(10*Math.PI/180);
+    // cw = ctx.canvas.height;
+    //         cw = ctx.canvas.width;
+    //         ch = ctx.canvas.height;
+    // ctx.translate(cw, ch / cw);
+    // ctx.translate(0,50);
     createElements(posDown);
+
+    ctx.translate(110, 20);
+    ctx.rotate(90*Math.PI/180);
+    // un-translate the canvas back to origin==top-left canvas
+
+    ctx.translate(-120, -20);
     // para.getBoundingClientRect().y +1;
     // para.style.top = posDown + 20 + 'px';
     posDown = posDown + 20;
