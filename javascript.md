@@ -1,53 +1,68 @@
 **JAVASCRIPT:**
 ---
-Javascript engine (for example Tamarin, V8, Chakra, Spidermonkey, written in c++) - so js runs asap on the browser on engine. Breaks the code in the tokens to understand what it means. 
-Interpreter - translate and read files line by line. Runs faster but no optimisation. 
-Complier - compiles down to the language that can be understood by our machine. Will write it in a new language ahead of the time. Tries to undertsnd what we try to do to a lower level code. All languages have to be compiled. 
-Babel and typescript are compilers. They take one language and convert into a different one. They also do optimisation behind the scene. Slower to run at first. 
-JIT Compliers - browsers started implementing it, combination of compilers and interpreter. 
+Javascript engine (for example Tamarin, V8, Chakra, Spidermonkey, written in c++) - so js runs asap on the browser on engine. Breaks the code in the tokens to understand what it means.
+Interpreter - translate and read files line by line. Runs faster but no optimisation.
+Complier - compiles down to the language that can be understood by our machine. Will write it in a new language ahead of the time. Tries to undertsnd what we try to do to a lower level code. All languages have to be compiled.
+Babel and typescript are compilers. They take one language and convert into a different one. They also do optimisation behind the scene. Slower to run at first.
+JIT Compliers - browsers started implementing it, combination of compilers and interpreter.
 
 Low level language: Developer has to manage resources manually (C)
 High level - developer does not have to worry, everything happens automatically (JS)
 
-JS is: 
-JS is interpreted or just-in-time compiled - it interprets 0 and 1 
+JS is:
+JS is interpreted or just-in-time compiled - it interprets 0 and 1
 Multi-paradigm - 1. Procedual programming, OOP, FP - > javascript can be all of them
-Almost everything is an Object - except from primitives 
+Almost everything is an Object - except from primitives
 First class functions - function streamed as variables, we can pass them etc
 JS Is single threaded - takes one thing at a time (we have one call stack), otherwise we need to use event loop
 JUST IN TIME COMPILATION- entire code is converted into machine code at once, then executed immediately
-HAs access to web API, through global window object 
+HAs access to web API, through global window object
 Also access to callback queues, event loppp - manages callback queue
 
 Execution context = environment in which a piece of js is executed, stores all the necessary info for some code to be executed.
-				what is inside: variable environmertnt (let, const, var, functions) 
-				Scope chain 
-				this keyword 
+				what is inside: variable environmertnt (let, const, var, functions)
+				Scope chain
+				this keyword
 				ARROW FUNCTION DONT GET ACCESS TO ARGUMENTS OBJECT AND THIS KEYWORD
+
+				function sayMyName() {
+				  var a = 'a';
+				  return function findName() {
+				    var b = 'b';
+				    console.log(c)
+				    return function printName() {
+				      var c = 'c';
+				      return 'Andrei Neagoie'
+				    }
+				  }
+				}
+
+				sayMyName()()()
+It will print Andrei Neagoie (as it will have an access to third function now)				
 
 CALL STACK : where you are in your program. Place where execution context get stacked on top of each other, to keep track of where we are in the execution
 			code runs in the call stack
 
-SCOPE: 3 types of scope - global scope, function scope (variables only accessible inside), block scope (variables are accessible only inside block, so between {} HOWEVER this only applies to let and const! 
+SCOPE: 3 types of scope - global scope, function scope (variables only accessible inside), block scope (variables are accessible only inside block, so between {} HOWEVER this only applies to let and const!
 
-**HOISTING** 
+**HOISTING**
 = Makes some types of variables accessible in the code before they are actually declared. LET and CONST variables are unitialized. Var variables are hoisted. function example() will not be accessible before. But var example = function() will be hoisted, so we can call it earlier. IF WE TRY TO ACCESS VAR VARIABLE VEFORE INITIALIZATION IT WILL SHOW US UNDEFINED BECAUSE THE JS KNOWS IT WILL BE THERE BUT THIS IS NOT THE CASE WITH CONST AND LET. SAME WITH ARROW FUNCTION, won’t see it. ALSO VARIABLES WITH VAR Will be declared in the window object. UNLIKE CONST AND LET. (console.log(x === window.x)
 
 **THIS KEYWORD**
-= one of the component of every execution context. The value of this is not static. 
+= one of the component of every execution context. The value of this is not static.
 If we call it in the method it will point to the method = const Jonas = {age: 12, callAge: function(){return 2020- this.name}}
-Arrow function don’t get own this. So it will be using this of the parent scope which will be the global scope so it will be posting to the window. 
-Event listener - this will be the DPM element that the handler is attached to. 
-If we are calling ‘this’ in a reg function it will be undefined. If it doesn’t have an owner or is not attached to 
+Arrow function don’t get own this. So it will be using this of the parent scope which will be the global scope so it will be posting to the window.
+Event listener - this will be the DPM element that the handler is attached to.
+If we are calling ‘this’ in a reg function it will be undefined. If it doesn’t have an owner or is not attached to
 
 Restructuring arrays:  
 let [first, , second] =[‘’butter’’, “milk”];
 [first, second] = [second, first];
-REST operator is used on the left 
+REST operator is used on the left
 Const [a,b, …others] = [1,2,3,,4,5]
 console.log(others =) will be 3,4,5,
 
-Null values = null and undefined //optional chaining 
+Null values = null and undefined //optional chaining
 Restaurant.openingHours.mon?.open = only if the mon property exists (so not null or undefined)  add open  otherwise return undefined
 
 //NULLISH OPERATOR distinguishes between nullish values (null, undefined_ and falser but defined values (false, 0, ‘’, NaN, -0, “”)
@@ -55,40 +70,40 @@ x=0
 Y = x || ‘hello’ (result is hello because 0 is a falser value)
 Y = x ?? ‘hello’ (result is gonna be 0 because it is not a nullsh value)
 Restaurant.order?.(1,2) ?? ‘Method does not exist)
-Because if order is not true it will show undefined 
+Because if order is not true it will show undefined
 
 **SETS**
-Give us unique values. Even if you put 5 elements to an array but 3 elements are the same the result in arr.length will be 3. 
+Give us unique values. Even if you put 5 elements to an array but 3 elements are the same the result in arr.length will be 3.
 IT IS HIGH PERFOMANR> IF YOU WANNA REMOVE DUPLICATES
 
 **MAPS**
 Everything can be a key, array, obj, string number, boolean. Data stracure, mapping Keyes to value. In objects the key is usually a stringconst rest = new Map();
-rest.ser(‘name’, ‘classico italiano’)//primitives 
+rest.ser(‘name’, ‘classico italiano’)//primitives
 Number, boolean, string, null, undefined
 
 **objects**
 Arrays, functions
 
-**passing by value** 
+**passing by value**
 The simple rule of passing by value is that all primitive values in JavaScript are passed by value
 Passing by value means that every time you assign a value to a variable, a copy of that value is created. Every single time.
 
 **passing by reference**
 On the other side objects (including plain objects, array, functions, class instances) are references. If you modify the object, then all variables that reference that object are going to see the change.
 
-**first class function** 
-Means that functions are values 
-Functions are just another type of object 
+**first class function**
+Means that functions are values
+Functions are just another type of object
 
-**higher order function** 
-A function that receives another function as an argument that returns a new function or both 
+**higher order function**
+A function that receives another function as an argument that returns a new function or both
 Const greet = () = {
 btnClose.addEventListener(‘click’, greet)
 }
 
 **CALLBACK function is a very popular concept in programming**
-Make it easier to split the code. 
-Helps to create abstraction = 
+Make it easier to split the code.
+Helps to create abstraction =
 
 Const high5 = function() {
 	console.log(‘hey’)
@@ -97,14 +112,14 @@ Const high5 = function() {
 //document.body.addEventListener(‘click’, high5)
 [‘marta’, ‘janek’].forEach(high5)
 
-**closure** 
+**closure**
 
 
 //FOR EACH Will never break out of the function comparing to normal loops
-//map creates a new array , for each not really. 
+//map creates a new array , for each not really.
 
 
-**create arrays:** 
+**create arrays:**
 Const x = new Array(7)
 x.fill(1,2,5,6,,7)
 OR
@@ -121,20 +136,20 @@ console.log(sums)
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-**/numbers in javascript** 
+**/numbers in javascript**
 2**53-1 -> this is the biggest nr = 9007199254740991
 
-//handling numbers in js = big numbers 
+//handling numbers in js = big numbers
 BigInt
 
 //intersection observer api
 Const observer = new IntersectionObserver(obsCallback, obsOptions) ;
 observer.obsreve(section1)
 
-**async or defer** 
-Html parsed - fetched script - execute 
-Async - script loaded as html parsed (page load shorter). Usually domcontent loaded waits for all scripts to execute. Except from async scripts. Scripts not guaranteed to execute in order. Use for 3rd party scrips where order doesn’t matter like google analytics. 
-Defer. = execution till the end, but fetch asynchronously script first . Domcontentloaded event fires after defer script is executed. Scripts are executed in order. That is the best solution. 
+**async or defer**
+Html parsed - fetched script - execute
+Async - script loaded as html parsed (page load shorter). Usually domcontent loaded waits for all scripts to execute. Except from async scripts. Scripts not guaranteed to execute in order. Use for 3rd party scrips where order doesn’t matter like google analytics.
+Defer. = execution till the end, but fetch asynchronously script first . Domcontentloaded event fires after defer script is executed. Scripts are executed in order. That is the best solution.
 
 **OOP In Javascript. Object Oriented Programming**
 Is a programming paradigm based on concept of objects
@@ -142,17 +157,17 @@ We use objects to model real world or abstract features;
 Objects may contain data and code. By using objects we pack data and the corresponding behaviour into one black.
 In OOP objects are self contained pieceds of code.
 Objects are building blocks of applications and interact with each other
-Interaction happen through a public interface (API): methods that the code outside of the object can access and use to communicate with object. 
+Interaction happen through a public interface (API): methods that the code outside of the object can access and use to communicate with object.
 OOP was developed to organise code and easier to maintain
 OOP paragdims:
 - Abstraction: Ignoring or hiding details that don’t matter, allowing us to get an overview perspective of the thing we are implementing, instead of messing with details that don’t really matter to our implementation. //addEventListener - we don’t know how it works but we don’t care
-- Encapsulation: Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface(API).Prevent external code from accidentaly manipulating internal state. 
-- Inheritance: child class extends parent class. Reuse common logic and to model real world relationship. 
+- Encapsulation: Keeping properties and methods private inside the class, so they are not accessible from outside the class. Some methods can be exposed as a public interface(API).Prevent external code from accidentaly manipulating internal state.
+- Inheritance: child class extends parent class. Reuse common logic and to model real world relationship.
 - Polymporishm: A child class can overwrite a method it inherited
 
- from a parent class. 
+ from a parent class.
 
-OOP in js -> objects are linked to a prototype object. Prototypal inheritance: the prototype contains methods that are accessible to all objects linked to that prototype. Behavior is delegated to the linked prototype object. 
+OOP in js -> objects are linked to a prototype object. Prototypal inheritance: the prototype contains methods that are accessible to all objects linked to that prototype. Behavior is delegated to the linked prototype object.
 ￼
 ￼
 
@@ -188,23 +203,23 @@ Const Jonas = new Person(‘Jonas’, 1991);
 **callback hell.How to avoid? Using promises and fetch api**
 
 **PROMISE - es6**
-An object that is used as a placeholder for the future result of an async operation. (Like a lottery ticket, you buy ticket and if I win I get the ticket). By using promises you can chain promises instead of callback hell. 
+An object that is used as a placeholder for the future result of an async operation. (Like a lottery ticket, you buy ticket and if I win I get the ticket). By using promises you can chain promises instead of callback hell.
 Lifecycle of a promise = PENDING - SETTLED - FULLFILLED OR REJECTED
 
-**how async javascript works behind the scenes?** 
-Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first 
+**how async javascript works behind the scenes?**
+Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first
 
 **Getters&Setters**
-classess and object literals have getters and setters. Can be very useful for data validations. Provides a simpler syntax. 
+classess and object literals have getters and setters. Can be very useful for data validations. Provides a simpler syntax.
 
-**Static methods** 
+**Static methods**
 Array.from(document.querySelector('h1')) is a static method
-Number.parseFloaT(12) - method on Number. 
+Number.parseFloaT(12) - method on Number.
 
 
 **prototype, class, object.new**
 do the same thing! but this one is the least used oout of these three
-const protoObj = { 
+const protoObj = {
     calcAge() {
         console.log(2037-this.birthYear)
     }
@@ -226,9 +241,9 @@ top level 'this' points to undefined, in a script it will point to a window
 modules are imported synchronously
 > import './shoppingCart.js'
 
-**npm** 
+**npm**
 1. having js in our html is messy
-2. If there is an upgrade of e.g jquery we would need to update it manually 
+2. If there is an upgrade of e.g jquery we would need to update it manually
 
 **Copy Object**
 Object.assign({}, state);
@@ -246,5 +261,5 @@ console.log('1')
 setTImetout, 0
 console.log('2')
 
-first will be console.log 1, then, 2 then settimeout 
+first will be console.log 1, then, 2 then settimeout
 coz settimeout needs to go from call stack to webapi, and call stack will be empty in the meantime so console.log will jump in there
