@@ -49,6 +49,7 @@ document.addEventListener("keydown", function(e) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // ctx.rotate(10*Math.PI/180);
     // cw = ctx.canvas.height;
+    
     //         cw = ctx.canvas.width;
     //         ch = ctx.canvas.height;
     // ctx.translate(cw, ch / cw);
