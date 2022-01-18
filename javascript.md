@@ -263,3 +263,6 @@ console.log('2')
 
 first will be console.log 1, then, 2 then settimeout
 coz settimeout needs to go from call stack to webapi, and call stack will be empty in the meantime so console.log will jump in there
+
+**IIFE**
+One way to prevent the functions and variables from polluting the global object is to use immediately invoked function expressions.
