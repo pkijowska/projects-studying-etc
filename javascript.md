@@ -266,3 +266,12 @@ coz settimeout needs to go from call stack to webapi, and call stack will be emp
 
 **IIFE**
 One way to prevent the functions and variables from polluting the global object is to use immediately invoked function expressions.
+
+**THIS**
+This is the object that the function is a property of
+function b() {
+	'use strict'
+	console.log(this)
+}
+Benefits of using : gives methods access to their object
+Execute same code for multiples objects
