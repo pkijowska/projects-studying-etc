@@ -275,3 +275,9 @@ function b() {
 }
 Benefits of using : gives methods access to their object
 Execute same code for multiples objects
+
+**Session storage**
+As long as our tab is open, even if we referesh we still have an access to what we have been saving. If we close the tab we will loose the session.
+
+**local storage**
+window.localStorage.setItem
