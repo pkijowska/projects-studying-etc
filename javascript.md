@@ -86,10 +86,16 @@ Arrays, functions
 
 **passing by value**
 The simple rule of passing by value is that all primitive values in JavaScript are passed by value
+var a = 5;
+var b = a;
+b++
+console.log a will be 5 and b will be 6.
 Passing by value means that every time you assign a value to a variable, a copy of that value is created. Every single time.
+These values will be not connected, just copied.
 
 **passing by reference**
-On the other side objects (including plain objects, array, functions, class instances) are references. If you modify the object, then all variables that reference that object are going to see the change.
+On the other side objects (including plain objects, array, functions, class instances) are references. If you modify the object, then all variables that reference that object are going to see the change. It won't be the copy but it will be linked. Only way to omit it is by using Object.assign({}, obj) or spread operator
+
 
 **first class function**
 Means that functions are values
@@ -281,3 +287,10 @@ As long as our tab is open, even if we referesh we still have an access to what 
 
 **local storage**
 window.localStorage.setItem
+
+**undefined vs null**
+null-abscence of value
+undefined - abscence of definitiion
+
+**built in objects**
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
