@@ -212,6 +212,11 @@ Const Jonas = new Person(‘Jonas’, 1991);
 An object that is used as a placeholder for the future result of an async operation. (Like a lottery ticket, you buy ticket and if I win I get the ticket). By using promises you can chain promises instead of callback hell.
 Lifecycle of a promise = PENDING - SETTLED - FULLFILLED OR REJECTED
 
+
+myPromise.then(value=> console.log('sth').catch(rejectedVal=> console.log(rejectedVal)))
+if we want to see the rejected value we need to catch it
+it will show you if api call was successful or not. So that is the whoe point of using it.
+
 **how async javascript works behind the scenes?**
 Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first
 
