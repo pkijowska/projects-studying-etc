@@ -217,6 +217,8 @@ myPromise.then(value=> console.log('sth').catch(rejectedVal=> console.log(reject
 if we want to see the rejected value we need to catch it
 it will show you if api call was successful or not. So that is the whoe point of using it.
 
+YOU CAN ONLY CALL .THEN ON RESOLVED Promises
+PIC INCLUDED OF EXAMPLE
 **how async javascript works behind the scenes?**
 Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first
 
