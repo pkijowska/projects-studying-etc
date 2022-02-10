@@ -219,6 +219,8 @@ it will show you if api call was successful or not. So that is the whoe point of
 
 YOU CAN ONLY CALL .THEN ON RESOLVED Promises
 PIC INCLUDED OF EXAMPLE
+
+With async and await we need to use try and catch block for us to catch the eventual errors. we also use await instead of chaining then.
 **how async javascript works behind the scenes?**
 Event loop checks if the call stack is empty.Promises will have a priority at all times so if we do set timeout vs promise, promise will be first
 
@@ -301,3 +303,7 @@ undefined - abscence of definitiion
 
 **built in objects**
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+
+**memoization**
+picture included
+caching. Code optimisation. Remembering solution. 

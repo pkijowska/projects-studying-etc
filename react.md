@@ -33,3 +33,5 @@ const CheckoutPage = ({cartItems, total}) => {
     </div>
     )
 }
+
+Page will rerender if props change or if we call set state or if the parent will call its own rerender 
