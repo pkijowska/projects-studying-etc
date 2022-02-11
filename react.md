@@ -34,4 +34,8 @@ const CheckoutPage = ({cartItems, total}) => {
     )
 }
 
-Page will rerender if props change or if we call set state or if the parent will call its own rerender 
+Page will rerender if props change or if we call set state or if the parent will call its own rerender
+
+_______________________________________________________________________
+why hooks were added?
+- we need lifecycles methods and state in functional components
