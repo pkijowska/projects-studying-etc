@@ -39,3 +39,4 @@ Page will rerender if props change or if we call set state or if the parent will
 _______________________________________________________________________
 why hooks were added?
 - we need lifecycles methods and state in functional components
+- useState will completely change state instead of merging data as in the past
