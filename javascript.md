@@ -306,4 +306,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 **memoization**
 picture included
-caching. Code optimisation. Remembering solution. 
+caching. Code optimisation. Remembering solution.
+
+**split by few different characters**
+//'123*45+'.split(/([-+*/])/) will give us array of  ['123', '*', '45', '+', '']
