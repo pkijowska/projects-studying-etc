@@ -9,8 +9,10 @@ const Quote = () => {
 
   const changeColor = () => {
     const bodyElt = document.querySelector("body");
+    const button = document.querySelector("button");
     const bgcolor = "hsla(" + ~~(360 * Math.random())+","+"70%,"+"80%,1)"
-    bodyElt.style.backgroundColor = bgcolor
+    bodyElt.style.backgroundColor = bgcolor;
+    button.style.backgroundColor = bgcolor
   }
 
   const sendRequest = useCallback(async () => {
@@ -39,7 +41,7 @@ const Quote = () => {
                <cite title="Source Title">{quote.author}</cite>
             </footer>
           </blockquote>
-          <Button variant="info" className="mt-2" onClick={sendRequest}>New quote</Button>
+          <Button variant="light" id="btn" className="mt-2" onClick={sendRequest}>New quote</Button>
         </Card.Body>
       </Card>
     </div>
