@@ -1,9 +1,10 @@
 import React from 'react';
 
 const MarkdownPreviewer = (props) => {
-  console.log(props.text)
   return (
-    <div>{props.text}</div>
+    <div>
+    <div dangerouslySetInnerHTML={{__html: props.text}}/>
+    </div>
   )
 }
 
