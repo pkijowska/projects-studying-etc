@@ -10,15 +10,16 @@ class MarkdownEditor extends React.Component {
   }
 
   componentDidMount() {
-    this.checkForHeadOne()
+    this.checkForHeadOne(this.state.text)
   }
 
-  checkForHeadOne = () => {
+  checkForHeadOne = (state) => {
     console.log(this.state.text, 'before txt')
-    let text = [...this.state.text];
+    let text = [...state];
     text.forEach((el, i)=>{
       if (el.includes('# ')) {
         const newValue = text[i].replace('# ','');
+        text[i] = newValue
         if (!text[i].includes('<h1>')) {
             text[i] = `<h1> ${text[i]} </h1>`
         }
@@ -31,18 +32,7 @@ class MarkdownEditor extends React.Component {
 
   handleOnChange = (e) => {
     let splitText = e.target.value.split('\n');
-    splitText.forEach((el, i)=>{
-      if (el.includes('# ')) {
-        const newValue = splitText[i].replace('# ','');
-        splitText[i] = newValue
-        if (!splitText[i].includes('<h1>')) {
-            splitText[i] = `<h1> ${splitText[i]} </h1>`
-        }
-        this.setState({
-          text: splitText
-        })
-      }
-    })
+    this.checkForHeadOne(splitText)
   }
 
   render() {
