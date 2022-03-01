@@ -1,9 +1,12 @@
 import React from 'react';
+import Markdown from 'marked-react';
 
 const MarkdownPreviewer = (props) => {
   return (
     <div>
-    <div dangerouslySetInnerHTML={{__html: props.text}}/>
+    {props.text.map(text=>{
+      return (<Markdown>{text}</Markdown>)
+    })}
     </div>
   )
 }
