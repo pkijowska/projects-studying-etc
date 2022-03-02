@@ -27,11 +27,12 @@ class MarkdownEditor extends React.Component {
   render() {
     const final = this.state.text.join(',');
     return (
-      <div>
+      <div className="form">
         <div className="form-group shadow-textarea">
           <label for="editor">Editor</label>
           <textarea onChange={this.handleOnChange} className="form-control z-depth-1" id="editor" rows="2" placeholder="Write something here..." >{final}</textarea>
         </div>
+        <hr/>
         <MarkdownPreviewer text={this.state.text} />
       </div>
     )

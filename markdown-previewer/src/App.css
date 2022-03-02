@@ -1,21 +1,13 @@
-
-.code {
-  color: black;
-  background: azure;
-}
-
-.shadow-textarea textarea.form-control::placeholder {
-    font-weight: 300;
-}
-.shadow-textarea textarea.form-control {
-    padding-left: 0.8rem;
-}
-
 .z-depth-1 {
-  width: 50% !important;
   height: 300px;
 }
 
-.App {
-  background: grey;
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+    width: 300px;
 }
