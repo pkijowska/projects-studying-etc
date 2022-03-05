@@ -1,13 +1,57 @@
 .z-depth-1 {
   height: 300px;
+  background: #FFF6CC;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 3rem;
 }
 
 .form-group {
-    width: 300px;
+    width: 50%;
+    background: #FFF6CC;
+}
+
+.form-control {
+  background: #FFF6CC;
+}
+
+.form-control:focus {
+  border-color: #FFE97F !important;
+  box-shadow: 0 0 0 0.25rem #FFE566 !important;
+}
+
+.header-wrapper {
+  border: 1px solid lightgrey;
+  padding: 3px;
+  /* border-radius: 56%; */
+  border-radius: 5px;
+  background: #FFF2B2;
+}
+
+.preview-inner {
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.preview-wrapper {
+  width: 60%;
+}
+
+.editor-small {
+
+}
+
+.editor-big {
+  height: 400px;
+  position: absolute;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
 }
