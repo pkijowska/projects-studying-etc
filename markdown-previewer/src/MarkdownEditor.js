@@ -1,6 +1,7 @@
 import React from 'react';
 import MarkdownPreviewer from './MarkdownPreviewer';
 import Markdown from 'marked-react';
+import remarkGfm from 'remark-gfm';
 
 class MarkdownEditor extends React.Component {
   constructor() {
@@ -12,10 +13,6 @@ class MarkdownEditor extends React.Component {
 ### And here's some other cool stuff:
 
 Heres some code, \`<div></div>\`, between 2 backticks.`
-    }
-
-    const options: MarkedOptions = {
-      gfm: true
     }
   }
 

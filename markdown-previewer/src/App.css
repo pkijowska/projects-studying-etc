@@ -1,3 +1,7 @@
+html, .form {
+  background: #ffffcc;
+}
+
 .z-depth-1 {
   height: 300px;
   background: #FFF6CC;
@@ -30,6 +34,7 @@
   /* border-radius: 56%; */
   border-radius: 5px;
   background: #FFF2B2;
+  box-shadow: lightgrey 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .preview-inner {
@@ -50,7 +55,7 @@
 .editor-big {
   /* height: 400px; */
   /* position: absolute; */
-  transform: scale(1.4) translate(0%, -80%);
+  transform: scale(1.4) translate(0%, -60%);
   transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
