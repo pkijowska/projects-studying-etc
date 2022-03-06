@@ -43,12 +43,15 @@
 }
 
 .editor-small {
+  transition: all .5s ease-in-out;
 
 }
 
 .editor-big {
-  height: 400px;
-  position: absolute;
+  /* height: 400px; */
+  /* position: absolute; */
+  transform: scale(1.4) translate(0%, -80%);
+  transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .preview-header {
