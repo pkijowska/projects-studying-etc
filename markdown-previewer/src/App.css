@@ -1,5 +1,6 @@
 html, .form {
   background: #ffffcc;
+  position: relative;
 }
 
 .z-depth-1 {
@@ -55,11 +56,18 @@ html, .form {
 .editor-big {
   /* height: 400px; */
   /* position: absolute; */
-  transform: scale(1.4) translate(0%, -60%);
+  transform: scale(1.1) translate(-20%, 0%);
   transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: absolute;
 }
 
 .preview-header {
   display: flex;
   justify-content: space-between;
+}
+
+blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
 }

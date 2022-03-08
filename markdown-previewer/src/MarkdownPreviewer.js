@@ -7,7 +7,7 @@ import { faMaximize, faMinimize } from '@fortawesome/free-solid-svg-icons';
 
 const MarkdownPreviewer = (props) => {
   let [editorMode, changeMode] = useState({editor: 'editor-small', icon: faMaximize})
-  const detectArr = Array.isArray(props.text) ? props.text : props.text.split('\n');
+  const detectArr = Array.isArray(props.text) ? props.text : [props.text];
 
   const handleClick = () => {
     return editorMode.editor === 'editor-small' ? changeMode({editor: 'editor-big', icon: faMinimize}) : changeMode({editor: 'editor-small', icon: faMaximize});
@@ -22,7 +22,8 @@ const MarkdownPreviewer = (props) => {
         </div>
         <div className="preview-inner">
           {detectArr.map(text=>{
-            return (<Markdown>{text}</Markdown>)
+            console.log(text)
+            return (<Markdown remarkPlugins={[remarkGfm]} children={text}></Markdown>)
           })}
         </div>
       </div>
