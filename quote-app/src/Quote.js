@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Quote = () => {
-  const [quote, setText] = useState({text: 'Keep on dreaming', author: 'unknow'})
-  const [color, setColor] = useState('')
+  const [quote, setText] = useState({text: 'Spread love everywhere you go.', author: 'Mother Teresa'})
+  const [color, Color] = useState('')
 
   const changeColor = () => {
     const bodyElt = document.querySelector("body");
@@ -15,7 +15,14 @@ const Quote = () => {
     button.style.backgroundColor = bgcolor
   }
 
+  useEffect(() => {
+    changeColor()
+    sendRequest()
+  },[])
+
+//I dont need usecallback actually
   const sendRequest = useCallback(async () => {
+    try {
       const api = await fetch('https://type.fit/api/quotes');
       const jsn = await api.json();
       const length = jsn.length;
@@ -24,7 +31,10 @@ const Quote = () => {
       const author = jsn[randomQuote].author;
       changeColor()
       return setText({text: final, author: author})
-    }, [])
+    } catch {
+      console.log('error')
+    }
+  }, [])
 
   return (
     <div className="quote-wrapper d-flex justify-content-center align-items-center">
@@ -41,7 +51,7 @@ const Quote = () => {
                <cite title="Source Title">{quote.author}</cite>
             </footer>
           </blockquote>
-          <Button variant="light" id="btn" className="mt-2" onClick={sendRequest}>New quote</Button>
+          <Button variant="light" id="btn new-quote" className="mt-2" onClick={sendRequest}>New quote</Button>
         </Card.Body>
       </Card>
     </div>
