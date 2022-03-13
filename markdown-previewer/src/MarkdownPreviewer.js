@@ -4,7 +4,6 @@ import remarkGfm from 'remark-gfm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMaximize, faMinimize } from '@fortawesome/free-solid-svg-icons';
 
-
 const MarkdownPreviewer = (props) => {
   let [editorMode, changeMode] = useState({editor: 'editor-small', icon: faMaximize})
   const detectArr = Array.isArray(props.text) ? props.text : [props.text];
@@ -22,7 +21,6 @@ const MarkdownPreviewer = (props) => {
         </div>
         <div className="preview-inner">
           {detectArr.map(text=>{
-            console.log(text)
             return (<Markdown remarkPlugins={[remarkGfm]} children={text}></Markdown>)
           })}
         </div>

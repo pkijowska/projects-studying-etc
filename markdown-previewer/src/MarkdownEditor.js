@@ -1,5 +1,5 @@
 import React from 'react';
-import MarkdownPreviewer from './MarkdownPreviewer';
+import MarkdownPreviewer from './MarkdownPreviewer.js';
 import Markdown from 'marked-react';
 import remarkGfm from 'remark-gfm';
 
@@ -36,17 +36,15 @@ And here. | Okay. | I think we get it.
   }
 
   handleOnChange = (e) => {
-    let splitText = e.target.value;
+    const textValue = e.target.value;
     this.setState({
-            text: splitText
+            text: textValue
           },() => {
             console.log(this.state.text, 'check for state')
     })
   }
 
   render() {
-    const finalText = this.state.text;
-
     return (
       <div className="form">
         <div className="form-group shadow-textarea">
@@ -54,7 +52,7 @@ And here. | Okay. | I think we get it.
               <label for="editor">
                 <h4>Editor</h4>
               </label>
-            <textarea onChange={this.handleOnChange} className="form-control z-depth-1" id="editor" rows="2" placeholder="Write something here..." >{finalText}</textarea>
+            <textarea onChange={this.handleOnChange} className="form-control z-depth-1" id="editor" rows="2" placeholder="Write something here..." >{this.state.text}</textarea>
           </div>
         </div>
         <hr/>

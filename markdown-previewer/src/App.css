@@ -32,7 +32,6 @@ html, .form {
 .header-wrapper {
   border: 1px solid lightgrey;
   padding: 3px;
-  /* border-radius: 56%; */
   border-radius: 5px;
   background: #FFF2B2;
   box-shadow: lightgrey 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -54,11 +53,10 @@ html, .form {
 }
 
 .editor-big {
-  /* height: 400px; */
-  /* position: absolute; */
-  transform: scale(1.1) translate(-20%, 0%);
+  transform: scale(1.1) translate(0%, 10%);
   transition: all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: absolute;
+  top: 2px;
 }
 
 .preview-header {
@@ -70,4 +68,17 @@ blockquote {
   padding: 0 1em;
   color: #6a737d;
   border-left: 0.25em solid #dfe2e5;
+}
+
+td,
+th,
+tr {
+  border: 1px solid black !important;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+img {
+  width: 200px;
+  height: 100px;
 }
