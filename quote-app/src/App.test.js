@@ -17,7 +17,7 @@ it('The new quote will appear after click', () => {
   // quote.findByType('button').props.onClick();
 
   const quote = shallow(
-    <Quote />
+    <Quote test='hello'/>
   );
 
   quote.find('#btn').simulate('click');
@@ -38,11 +38,6 @@ it('The new quote will appear after click', () => {
 //   shallow(<App />);
 // });
 
-it("renders Account header", () => {
-  const wrapper = shallow(<App />);
-  const welcome = <h1>Test</h1>;
-  expect(wrapper.contains(welcome)).toEqual(true);
-});
 
 // describe("Click tests", () => {
 //       it("testing login click", () => {
