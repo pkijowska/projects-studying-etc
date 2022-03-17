@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteCard = ({quote}) => {
+const QuoteCard = ({ quote }) => {
   return (
     <div>
       <blockquote className="blockquote mb-0">

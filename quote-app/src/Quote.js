@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Quote = () => {
   const [quote, setText] = useState({text: '', author: '', load: false})
-
   const changeColor = () => {
     const bodyElt = document.querySelector("body");
     const button = document.querySelector("button");

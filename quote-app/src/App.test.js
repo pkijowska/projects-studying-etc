@@ -1,8 +1,11 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 import Quote from './Quote';
+import QuoteCard from './QuoteCard';
 import { configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
 configure({ adapter: new Adapter() });
 import { shallow, mount } from 'enzyme';
 
@@ -32,6 +35,25 @@ it('The new quote will appear after click', () => {
   // fireEvent.click(getByLabelText(/off/i));
 
   // expect(queryByLabelText(/on/i)).toBeTruthy();
+});
+
+
+//THIS WORKS
+const quote = {
+  text: "Test text",
+  author: "Adeneye David",
+};
+
+describe("<QuoteCard />", () => {
+  it("contains account", () => {
+    const wrapper = mount(<QuoteCard quote={quote} />);
+    const value = wrapper.find("p").text();
+    expect(value).toEqual("Test text");
+  });
+  it("accepts quote props", () => {
+    const wrapper = mount(<QuoteCard quote={quote} />);
+    expect(wrapper.props().quote).toEqual(quote);
+  });
 });
 
 // it("renders without crashing", () => {
