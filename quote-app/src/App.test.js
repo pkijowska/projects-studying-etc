@@ -16,27 +16,14 @@ test('renders quote that is not empty', () => {
 });
 
 it('The new quote will appear after click', () => {
-
   // quote.findByType('button').props.onClick();
-
   const quote = shallow(
     <Quote test='hello'/>
   );
-
+  //fix that
   quote.find('#btn').simulate('click');
   expect(screen.queryByText('Keep on dreaming')).toBeInTheDocument()
-
-  // const button = getByTestId(quote, 'btn');
-  //   fireEvent.click(button);
-
-  // expect(closeRightSectionSpy).toHaveBeenCalled();
-  // expect(queryByLabelText(/off/i)).toBeTruthy();
-
-  // fireEvent.click(getByLabelText(/off/i));
-
-  // expect(queryByLabelText(/on/i)).toBeTruthy();
 });
-
 
 //THIS WORKS
 const quote = {
@@ -52,21 +39,25 @@ describe("<QuoteCard />", () => {
   });
   it("accepts quote props", () => {
     const wrapper = mount(<QuoteCard quote={quote} />);
+    console.log(wrapper)
     expect(wrapper.props().quote).toEqual(quote);
   });
 });
-
-// it("renders without crashing", () => {
-//   shallow(<App />);
-// });
-
-
-// describe("Click tests", () => {
-//       it("testing login click", () => {
-//         const clickMock = jest.fn();
-//         const wrapper = shallow(<Quote />);
-//         const btn = wrapper.find("#btn");
-//         if (btn) btn.simulate("click");
-//         expect(clickMock.mock.calls.length).toBe(1);
-//       });
-//     });
+const sendRequest = async () => {
+  try {
+    const api = await fetch('https://type.fit/api/quotes');
+    const jsn = await api.json();
+    const randomQuote = Math.floor((Math.random(jsn.length)*100)+1);
+    const final = jsn[randomQuote].text;
+    return final
+  } catch {
+    console.log('error')
+  }
+}
+test('checking if I get async quotes', async () => {
+  expect.hasAssertions();
+  const data = await sendRequest();
+  console.log('what this', data)
+  expect(typeof 'data').toBe('string');
+  expect(data).not.toBe('');
+});

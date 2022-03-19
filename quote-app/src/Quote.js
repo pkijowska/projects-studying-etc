@@ -23,13 +23,13 @@ const Quote = () => {
 
 //I dont need usecallback actually
   const sendRequest = useCallback(async () => {
+    changeColor()
     try {
       const api = await fetch('https://type.fit/api/quotes');
       const jsn = await api.json();
       const randomQuote = Math.floor((Math.random(jsn.length)*100)+1);
       const final = jsn[randomQuote].text;
       const author = jsn[randomQuote].author;
-      changeColor()
       return setText({text: final, author: author, load: true})
     } catch {
       setText({load: false})
@@ -46,7 +46,7 @@ const Quote = () => {
           <Button variant="light" id="btn new-quote" className="mt-2" onClick={sendRequest}>New quote</Button>
         </Card.Body>
       </Card>
-    : 'wait'}
+    : ''}
     </div>
   )
 }
