@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MainCalc = () => {
-  let [value, setValue] = useState(0);
   let [numbers, setNumber] = useState([0]);
   let [storeNum, numberOperations] = useState([]);
-
+  let [operateNum, pushNumbers] = useState([]);
   const handleClick = (e) => {
     const { innerText } = e.target;
     if (numbers[0] === 0) {
       const newArr = [...numbers];
       const [,...rest] = newArr;
       setNumber([rest, innerText].join(''));
+      console.log(numbers, 'numbers1')
     } else {
       setNumber([...numbers, innerText].join(''));
+      console.log(numbers, 'numbers2')
     }
-    setValue(innerText);
   }
 
   const resetClick = () => {
-    setNumber([0])
     numberOperations([])
+    pushNumbers([])
+    setNumber([0])
   }
 
   const handlePlus = () => {
-    numberOperations([...storeNum, numbers])
-    console.log(storeNum, 'num');
-  }
+    //this is wrong... this needs to reset the numbers and add them all up
+    //get the num before plus change state, reset the value to zero...get that number
+    pushNumbers(prevState => [...prevState, numbers]);
+    numberOperations([0]);
+    console.log('plus', numbers, storeNum, operateNum);
+    console.log('hello');
+   }
+
+   useEffect(() => {
+     console.log('Do something after counter has changed');
+   }, [numbers]);
 
   const handleResult = () => {
     const sumWithInitial = storeNum.reduce(
       (previousValue, currentValue) => Number(previousValue) + Number(currentValue),
       0
     );
-    console.log(sumWithInitial, 'together', storeNum)
+    // console.log(sumWithInitial, 'together', storeNum)
   }
 
   //steps
@@ -46,7 +55,7 @@ const MainCalc = () => {
       <div className="calculator-wrapper__main">
         <div className="calculcator-panel">{numbers} </div>
         <div onClick={resetClick} className="calculator-block"> AC </div>
-        <div onClick={handlePlus} className="calculator-block"> +/- </div>
+        <div onClick={handleClick} className="calculator-block"> +/- </div>
         <div onClick={handleClick} className="calculator-block"> % </div>
         <div onClick={handleClick} className="calculator-block"> / </div>
         <div onClick={handleClick} className="calculator-block"> 7 </div>
