@@ -4,6 +4,7 @@ const MainCalc = () => {
   //display val
   let [numbers, setNumber] = useState([0]);
   let [total, addToTotal] = useState([0]);
+  let [singleNum, addSingleNum] = useState(0)
   // let [storeNum, numberOperations] = useState([]);
   //operational values
   let [operateNum, pushNumbers] = useState([]);
@@ -11,15 +12,21 @@ const MainCalc = () => {
     //this will be working on every on click, we need to add numbers together before the plus happens
     const { innerText } = e.target;
     if (numbers[0] === 0) {
+      let test = 9;
       const newArr = [...numbers];
       const [,...rest] = newArr;
       setNumber([rest, innerText].join(''));
-      pushNumbers([rest, innerText])
+      addToTotal(Number(total) + Number([rest, innerText].join('')))
+      addSingleNum([rest, innerText].join(''))
+      // pushNumbers([rest, innerText])
       // console.log(numbers, 'numbers1')
     } else {
+      addToTotal(total - singleNum);
+      addSingleNum(0)
       setNumber([...numbers, innerText].join(''));
-      pushNumbers([...operateNum, innerText])
-      // console.log(operateNum, 'numbers2')
+      // pushNumbers([...operateNum, innerText])
+      addToTotal(Number(total) + Number([...numbers, innerText].join('')))
+          // console.log(operateNum, 'numbers2')
     }
   }
 
@@ -32,12 +39,13 @@ const MainCalc = () => {
 
   const handlePlus = () => {
     // pushNumbers(prevState => [...prevState, numbers]);
+
     if (operateNum.length > 2) {
-      addToTotal(Number(total) + Number(operateNum.join('')))
-      setNumber([operateNum.join('')])
+      // addToTotal(Number(total) + Number(operateNum.join('')))
+      // setNumber([operateNum.join('')])
       setNumber([0])
     } else {
-      addToTotal(Number(total) + Number(operateNum.join('')))
+      // addToTotal(Number(total) + Number(operateNum.join('')))
       setNumber([0])
     }
 
