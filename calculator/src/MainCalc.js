@@ -1,54 +1,61 @@
 import React, { useState, useEffect } from 'react';
 
 const MainCalc = () => {
+  //display val
   let [numbers, setNumber] = useState([0]);
-  let [storeNum, numberOperations] = useState([]);
+  let [total, addToTotal] = useState([0]);
+  // let [storeNum, numberOperations] = useState([]);
+  //operational values
   let [operateNum, pushNumbers] = useState([]);
   const handleClick = (e) => {
+    //this will be working on every on click, we need to add numbers together before the plus happens
     const { innerText } = e.target;
     if (numbers[0] === 0) {
       const newArr = [...numbers];
       const [,...rest] = newArr;
       setNumber([rest, innerText].join(''));
-      console.log(numbers, 'numbers1')
+      pushNumbers([rest, innerText])
+      // console.log(numbers, 'numbers1')
     } else {
       setNumber([...numbers, innerText].join(''));
-      console.log(numbers, 'numbers2')
+      pushNumbers([...operateNum, innerText])
+      // console.log(operateNum, 'numbers2')
     }
   }
 
   const resetClick = () => {
-    numberOperations([])
+    // numberOperations([])
     pushNumbers([])
     setNumber([0])
+    addToTotal(0)
   }
 
   const handlePlus = () => {
-    //this is wrong... this needs to reset the numbers and add them all up
-    //get the num before plus change state, reset the value to zero...get that number
-    pushNumbers(prevState => [...prevState, numbers]);
-    numberOperations([0]);
-    console.log('plus', numbers, storeNum, operateNum);
-    console.log('hello');
+    // pushNumbers(prevState => [...prevState, numbers]);
+    if (operateNum.length > 2) {
+      addToTotal(Number(total) + Number(operateNum.join('')))
+      setNumber([operateNum.join('')])
+      setNumber([0])
+    } else {
+      addToTotal(Number(total) + Number(operateNum.join('')))
+      setNumber([0])
+    }
+
+    // const sumWithInitial = operateNum.reduce(
+    //   (previousValue, currentValue) => Number(previousValue) + Number(currentValue),
+    //   0
+    // );
+    // setNumber([sumWithInitial])
+    // pushNumbers(numbers)
    }
 
-   useEffect(() => {
-     console.log('Do something after counter has changed');
-   }, [numbers]);
+   // useEffect(() => {
+   //   console.log(' ');
+   // }, [numbers]);
 
   const handleResult = () => {
-    const sumWithInitial = storeNum.reduce(
-      (previousValue, currentValue) => Number(previousValue) + Number(currentValue),
-      0
-    );
-    // console.log(sumWithInitial, 'together', storeNum)
+    setNumber(total)
   }
-
-  //steps
-  //ac to reset the state to 0
-  // / to divide
-  // + to add etc
-  // = to finish
 
   return (
     <div className="calculator-wrapper">
