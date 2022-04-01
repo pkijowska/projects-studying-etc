@@ -5,7 +5,6 @@ const MainCalc = () => {
   let [total, changeTotal] = useState([0]);
   let [singleNum, addSingleNum] = useState(0)
   //operational values
-  let [operateNum, pushNumbers] = useState([]);
   const handleClick = (e) => {
     const { innerText } = e.target;
     if (display[0] === 0) {
@@ -23,23 +22,13 @@ const MainCalc = () => {
 
   const resetClick = () => {
     // numberOperations([])
-    pushNumbers([])
     setDisplay([0])
     changeTotal(0)
   }
 
   const handlePlus = () => {
     // pushNumbers(prevState => [...prevState, numbers]);
-
-    if (operateNum.length > 2) {
-      // addToTotal(Number(total) + Number(operateNum.join('')))
-      // setNumber([operateNum.join('')])
       setDisplay([0])
-    } else {
-      // addToTotal(Number(total) + Number(operateNum.join('')))
-      setDisplay([0])
-    }
-
    }
 
   const handleResult = () => {
