@@ -1,40 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
 const MainCalc = () => {
-  //display val
-  let [numbers, setNumber] = useState([0]);
-  let [total, addToTotal] = useState([0]);
+  let [display, setDisplay] = useState([0]);
+  let [total, changeTotal] = useState([0]);
   let [singleNum, addSingleNum] = useState(0)
-  // let [storeNum, numberOperations] = useState([]);
   //operational values
   let [operateNum, pushNumbers] = useState([]);
   const handleClick = (e) => {
-    //this will be working on every on click, we need to add numbers together before the plus happens
     const { innerText } = e.target;
-    if (numbers[0] === 0) {
-      const newArr = [...numbers];
+    if (display[0] === 0) {
+      const newArr = [...display];
       const [,...rest] = newArr;
-      setNumber([rest, innerText].join(''));
-      addToTotal(Number(total) + Number([rest, innerText].join('')))
+      setDisplay([rest, innerText].join(''));
+      changeTotal(Number(total) + Number([rest, innerText].join('')))
       addSingleNum([rest, innerText].join(''))
-      // pushNumbers([rest, innerText])
-      // console.log(numbers, 'numbers1')
     } else {
-      setNumber([...numbers, innerText].join(''));
-      // pushNumbers([...operateNum, innerText])
-      addToTotal(Number(total) - Number(singleNum) + Number([...numbers, innerText].join('')))
+      setDisplay([...display, innerText].join(''));
+      changeTotal(Number(total) - Number(singleNum) + Number([...display, innerText].join('')))
       addSingleNum(0)
-
-          // console.log(operateNum, 'numbers2')
-      console.log(singleNum, 'single num')
     }
   }
 
   const resetClick = () => {
     // numberOperations([])
     pushNumbers([])
-    setNumber([0])
-    addToTotal(0)
+    setDisplay([0])
+    changeTotal(0)
   }
 
   const handlePlus = () => {
@@ -43,32 +34,22 @@ const MainCalc = () => {
     if (operateNum.length > 2) {
       // addToTotal(Number(total) + Number(operateNum.join('')))
       // setNumber([operateNum.join('')])
-      setNumber([0])
+      setDisplay([0])
     } else {
       // addToTotal(Number(total) + Number(operateNum.join('')))
-      setNumber([0])
+      setDisplay([0])
     }
 
-    // const sumWithInitial = operateNum.reduce(
-    //   (previousValue, currentValue) => Number(previousValue) + Number(currentValue),
-    //   0
-    // );
-    // setNumber([sumWithInitial])
-    // pushNumbers(numbers)
    }
 
-   // useEffect(() => {
-   //   console.log(' ');
-   // }, [numbers]);
-
   const handleResult = () => {
-    setNumber(total)
+    setDisplay(total)
   }
 
   return (
     <div className="calculator-wrapper">
       <div className="calculator-wrapper__main">
-        <div className="calculcator-panel">{numbers} </div>
+        <div className="calculcator-panel">{display} </div>
         <div onClick={resetClick} className="calculator-block"> AC </div>
         <div onClick={handleClick} className="calculator-block"> +/- </div>
         <div onClick={handleClick} className="calculator-block"> % </div>
