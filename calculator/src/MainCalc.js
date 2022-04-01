@@ -12,7 +12,6 @@ const MainCalc = () => {
     //this will be working on every on click, we need to add numbers together before the plus happens
     const { innerText } = e.target;
     if (numbers[0] === 0) {
-      let test = 9;
       const newArr = [...numbers];
       const [,...rest] = newArr;
       setNumber([rest, innerText].join(''));
@@ -21,12 +20,13 @@ const MainCalc = () => {
       // pushNumbers([rest, innerText])
       // console.log(numbers, 'numbers1')
     } else {
-      addToTotal(total - singleNum);
-      addSingleNum(0)
       setNumber([...numbers, innerText].join(''));
       // pushNumbers([...operateNum, innerText])
-      addToTotal(Number(total) + Number([...numbers, innerText].join('')))
+      addToTotal(Number(total) - Number(singleNum) + Number([...numbers, innerText].join('')))
+      addSingleNum(0)
+
           // console.log(operateNum, 'numbers2')
+      console.log(singleNum, 'single num')
     }
   }
 
