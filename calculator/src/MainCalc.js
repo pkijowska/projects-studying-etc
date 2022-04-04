@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const MainCalc = () => {
   let [display, setDisplay] = useState([0]);
-  let [total, changeTotal] = useState(0);
+  let [total, changeTotal] = useState([0]);
   // let [number, changeNumber] = useState([]);
   let [number, showCurrent] = useState(false);
   let [final, showFinal] = useState(false);
@@ -12,40 +12,42 @@ const MainCalc = () => {
   const handleClick = (e) => {
     showCurrent(true)
     const { innerText } = e.target;
-    console.log(number, 'number')
     if (display[0] === 0) {
       const newArr = [...display];
       const [,...rest] = newArr;
       setDisplay([rest, innerText].join(''));
       // changeNumber(Number([rest, innerText].join('')))
       // addSingleNum([rest, innerText].join(''))
-      // changeTotal(number+ Number([rest, innerText].join('')))
+      console.log(total, 'what is total?')
+      // changeTotal(Number([rest, innerText].join('')))
+
     } else {
       setDisplay([...display, innerText].join(''));
-      // changeNumber([...number, Number([...display, innerText].join(''))])
+      console.log('wtf', [...display, innerText].join(''), total)
+      // changeTotal(Number(total) + Number([...display, innerText].join('')))
       // changeTotal()
       // addSingleNum(0)
     }
-
-    console.log(number, 'num2?')
   }
 
   const resetClick = () => {
     // numberOperations([])
     setDisplay([0])
-    changeTotal(0)
+    changeTotal([0])
     // changeNumber([])
   }
 
   const handlePlus = () => {
     showCurrent(false)
+    changeTotal([Number(total) + Number(display)])
+    console.log(total, Number(total) + Number(display), display, 'total')
+    setDisplay([0])
     // pushNumbers(prevState => [...prevState, numbers]);
-    setDisplay([Number(total) + number])
-    changeTotal(Number(total) + number)
+    // setDisplay([Number(total) + number])
+
     // Number(total) - Number(singleNum)
     // setDisplay([0])
    }
-   console.log(total, 'plus')
 
    // // do I need this?
    // useEffect(() => {
@@ -67,8 +69,10 @@ const MainCalc = () => {
 
   const showNumber = () => {
     if (number) {
+      console.log('number')
       return display
     } else {
+      console.log('total')
       return total
     }
   }
