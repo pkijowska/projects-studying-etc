@@ -1,53 +1,82 @@
 import React, { useState, useEffect } from 'react';
 
 const MainCalc = () => {
+  let [start, changeInitialValue] = useState(true)
   let [display, setDisplay] = useState([0]);
+  let [sencondDisplay, changeSecond] = useState([0]);
+  let [firstNumber, firstIsTaken] = useState(false);
   let [total, changeTotal] = useState([0]);
   let [number, showCurrent] = useState(false);
   let [final, showFinal] = useState(false);
+  let [lastNumber, takeLastNumber] = useState([0]);
+  let [add, addNumber] = useState(false);
+
+  //current problem - operations being done too early. need to calc before +
+  //type nr, add to display. when adding remember it is plus. dont do anything after another display add these two.
 
   const handleClick = (e) => {
     showCurrent(true)
     const { innerText } = e.target;
-    if (display[0] === 0) {
-      const newArr = [...display];
-      const [,...rest] = newArr;
-      setDisplay([rest, innerText].join(''));
-      console.log(total, 'what is total?')
-    } else {
+    changeInitialValue(false)
+    // if (display[0] === 0) {
+    //   const newArr = [...display];
+    //   const [,...rest] = newArr;
+    //   // if (firstNumber) {
+    //   //   sencondDisplay([rest, innerText].join(''))
+    //   // } else {
+    //   //   setDisplay([rest, innerText].join(''));
+    //   // }
+    if (!firstNumber) {
       setDisplay([...display, innerText].join(''));
-      console.log('wtf', [...display, innerText].join(''), total)
+    } else {
+      changeSecond([...sencondDisplay, innerText].join(''));
     }
+    //   // changeTotal([rest, innerText].join(''))
+    // } else {
+    //   takeLastNumber([...display, innerText].join(''));
+        // changeSecond([...display, innerText].join(''))
+        // console.log(changeSecond([...display, innerText].join('')), 'change')
+      // } else {
+      //   setDisplay([...display, innerText].join(''));
+      // }
+    //   // changeTotal([...display, innerText].join(''));
+    // }
   }
+  console.log(display, 'display', Number(sencondDisplay), add)
 
   const resetClick = () => {
     setDisplay([0])
     changeTotal([0])
+    firstIsTaken(false)
+    changeSecond([0])
   }
 
   const handlePlus = () => {
+    addNumber(true)
     showCurrent(false)
-    changeTotal([Number(total) + Number(display)])
-    console.log(total, Number(total) + Number(display), display, 'total')
-    setDisplay([0])
+    firstIsTaken(true)
+    // changeTotal([Number(total) + Number(display)])
+    // setDisplay([0])
    }
 
-   // // do I need this?
-   // useEffect(() => {
-   //   // changeFinal(total)
-   //   console.log('changed')
-   // }, [total])
+   // do I need this?
+   useEffect(() => {
+     // changeFinal(total)
+     // console.log(lastNumber, 'changed', total)
+     if (add) {
+       changeTotal(Number(display) + Number(sencondDisplay))
+     }
+     console.log(total, 'to')
+   })
 
    const handleTimes = () => {
      // pushNumbers(prevState => [...prevState, numbers]);
      showCurrent(false)
-     console.log('display', total)
      if (total[0] !== 0) {
        changeTotal([Number(total) * Number(display)])
      } else {
        changeTotal([Number(display)])
      }
-     console.log(total, display, Number(total) * Number(display), 'times')
      setDisplay([0])
     }
 
@@ -55,12 +84,14 @@ const MainCalc = () => {
     setDisplay(total)
   }
 
-  const showNumber = () => {
-    if (number) {
-      console.log('number')
-      return display
+  const showNumber = (num) => {
+    if (start) {
+      return 0
+    } else if (number && (!firstNumber)) {
+      return parseInt(display, 10)
+    } else if (firstNumber) {
+        return parseInt(sencondDisplay, 10)
     } else {
-      console.log('total')
       return total
     }
   }
