@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 const MainCalc = () => {
   let [start, changeInitialValue] = useState(true)
   let [display, setDisplay] = useState([0]);
-  let [sencondDisplay, changeSecond] = useState([0]);
   let [firstNumber, firstIsTaken] = useState(false);
   let [total, changeTotal] = useState([0]);
   let [number, showCurrent] = useState(false);
@@ -11,72 +10,57 @@ const MainCalc = () => {
   let [lastNumber, takeLastNumber] = useState([0]);
   let [add, addNumber] = useState(false);
 
-  //current problem - operations being done too early. need to calc before +
-  //type nr, add to display. when adding remember it is plus. dont do anything after another display add these two.
+  //display 1.. when typing show on screen. after plus show total. then again
+  //show numbers ... then total
 
   const handleClick = (e) => {
     showCurrent(true)
     const { innerText } = e.target;
     changeInitialValue(false)
-    // if (display[0] === 0) {
-    //   const newArr = [...display];
-    //   const [,...rest] = newArr;
-    //   // if (firstNumber) {
-    //   //   sencondDisplay([rest, innerText].join(''))
-    //   // } else {
-    //   //   setDisplay([rest, innerText].join(''));
-    //   // }
-    if (!firstNumber) {
-      setDisplay([...display, innerText].join(''));
-    } else {
-      changeSecond([...sencondDisplay, innerText].join(''));
+    setDisplay([...display, innerText].join(''))
+    showCurrent(false)
+
+    if (add) {
+      console.log('add', total, parseInt(display, 10))
     }
-    //   // changeTotal([rest, innerText].join(''))
-    // } else {
-    //   takeLastNumber([...display, innerText].join(''));
-        // changeSecond([...display, innerText].join(''))
-        // console.log(changeSecond([...display, innerText].join('')), 'change')
-      // } else {
-      //   setDisplay([...display, innerText].join(''));
-      // }
-    //   // changeTotal([...display, innerText].join(''));
-    // }
   }
-  console.log(display, 'display', Number(sencondDisplay), add)
 
   const resetClick = () => {
     setDisplay([0])
     changeTotal([0])
-    firstIsTaken(false)
-    changeSecond([0])
+    changeInitialValue(true)
+    addNumber(false)
   }
 
   const handlePlus = () => {
     addNumber(true)
+
+    changeTotal(Number(total) + Number(display))
+
     showCurrent(false)
+    showFinal(true)
     firstIsTaken(true)
-    // changeTotal([Number(total) + Number(display)])
-    // setDisplay([0])
+    setDisplay([0])
+    //
+    // // changeTotal([Number(total) + Number(display)])
+    // console.log(total, 'total')
    }
 
    // do I need this?
    useEffect(() => {
      // changeFinal(total)
      // console.log(lastNumber, 'changed', total)
-     if (add) {
-       changeTotal(Number(display) + Number(sencondDisplay))
-     }
-     console.log(total, 'to')
-   })
+     console.log(total,'here')
+   }, [total])
 
    const handleTimes = () => {
+     addNumber(false)
+
      // pushNumbers(prevState => [...prevState, numbers]);
      showCurrent(false)
-     if (total[0] !== 0) {
-       changeTotal([Number(total) * Number(display)])
-     } else {
-       changeTotal([Number(display)])
-     }
+     console.log(total, display, 'times')
+     // changeTotal([Number(display)])
+
      setDisplay([0])
     }
 
@@ -84,17 +68,29 @@ const MainCalc = () => {
     setDisplay(total)
   }
 
-  const showNumber = (num) => {
+  // const showNumber = (num) => {
+  //   if (start) {
+  //     console.log('start')
+  //     return 0
+  //   } else if (number && (!firstNumber)) {
+  //     console.log('second')
+  //     return parseInt(display, 10)
+  //   } else if (firstNumber) {
+  //     return parseInt(sencondDisplay, 10)
+  //   } else {
+  //     console.log('fourth')
+  //     return total
+  //   }
+  // }
+
+  const showNumber = () => {
     if (start) {
       return 0
-    } else if (number && (!firstNumber)) {
-      return parseInt(display, 10)
-    } else if (firstNumber) {
-        return parseInt(sencondDisplay, 10)
     } else {
-      return total
+      return parseInt(display, 10)
     }
   }
+
 
   return (
     <div className="calculator-wrapper">
