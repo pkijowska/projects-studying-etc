@@ -9,15 +9,20 @@ const MainCalc = () => {
   let [final, showFinal] = useState(false);
   let [lastNumber, takeLastNumber] = useState([0]);
   let [add, addNumber] = useState(false);
+  let [arr, changeArr] = useState([])
 
-  //display 1.. when typing show on screen. after plus show total. then again
-  //show numbers ... then total
+  //display 1.. when typing add numbers [10, 100, 1005]
 
   const handleClick = (e) => {
     showCurrent(true)
     const { innerText } = e.target;
     changeInitialValue(false)
+    console.log([...display, innerText], 'inner')
     setDisplay([...display, innerText].join(''))
+    console.log(display, 'diss')
+    changeArr([...arr, parseInt(display, 10)])
+    // arr = arr.concat([parseInt(display, 10)])
+    // console.log(arr, 'arr')
     showCurrent(false)
 
     if (add) {
@@ -50,8 +55,9 @@ const MainCalc = () => {
    useEffect(() => {
      // changeFinal(total)
      // console.log(lastNumber, 'changed', total)
-     console.log(total,'here')
-   }, [total])
+     console.log(arr, 'rrr')
+
+   }, [arr])
 
    const handleTimes = () => {
      addNumber(false)
