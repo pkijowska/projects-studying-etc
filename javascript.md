@@ -310,3 +310,13 @@ caching. Code optimisation. Remembering solution.
 
 **split by few different characters**
 //'123*45+'.split(/([-+*/])/) will give us array of  ['123', '*', '45', '+', '']
+
+**flatten array using reduce**
+const initialValue = [];
+const sumWithInitial = arr.reduce(
+  (previousValue, currentValue) => previousValue.concat(currentValue),
+  initialValue
+);
+sumWithInitial
+(8) [1, 2, 2, 4, 5, 98, 7, 2]
+arr = [[1,2], [2,4,5], [98,7,2]]

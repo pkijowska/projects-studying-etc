@@ -16,7 +16,6 @@ test('renders quote that is not empty', () => {
 });
 
 it('The new quote will appear after click', () => {
-  // quote.findByType('button').props.onClick();
   const quote = shallow(
     <Quote test='hello'/>
   );
