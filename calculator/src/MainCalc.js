@@ -19,8 +19,16 @@ const MainCalc = () => {
     changeInitialValue(false)
     console.log([...display, innerText], 'inner')
     setDisplay([...display, innerText].join(''))
-    console.log(display, 'diss')
-    changeArr([...arr, parseInt(display, 10)])
+
+    if (!arr.length) {
+      changeArr([parseInt(display, 10)])
+      console.log('first', arr)
+    } else {
+      console.log(arr, 'array1')
+      let [first, ...mainArr] = arr
+      console.log(mainArr, 'mainArr')
+      changeArr([...arr, parseInt(display, 10)])
+    }
     // arr = arr.concat([parseInt(display, 10)])
     // console.log(arr, 'arr')
     showCurrent(false)
