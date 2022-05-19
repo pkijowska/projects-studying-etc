@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 const MainCalc = () => {
   // let [start, changeInitialValue] = useState(true)
   // let [display, setDisplay] = useState([0]);
-  // let [firstNumber, firstIsTaken] = useState(false);
-  // let [total, changeTotal] = useState([0]);
-  // let [number, showCurrent] = useState(false);
+  let [operatorClickedFirstTime, operatorClick] = useState(false);
+  let [total, changeTotal] = useState([0]);
+  let [number, showCurrent] = useState(false);
   // let [final, showFinal] = useState(false);
   // let [lastNumber, takeLastNumber] = useState([0]);
   // let [add, addNumber] = useState(false);
@@ -107,18 +107,26 @@ const MainCalc = () => {
 
   // ***************************** \\
   // Basically what needs to be done:
-  // 1. Check if the operation is first = if yes, then convert what is typed into total
+  // Is it number? Display number. Is it operation? Display total. Sum? Display total.
+  // 1. Check if the operation is clicked first for the first time= if yes, then convert what is typed into total
   // 2. if the operation is not first then check operator (if first operation check)
   // 3. If the operator is clicked show total
   // 4. What is being typed add to total.
   // 5. Register the previous number and if there is more numbers added extract from total
+
+  // Things I need:
+  // total
+  // number
+  // operatorClickedFirstTime
+  //
   // ***************************** \\
 
 
   return (
     <div className="calculator-wrapper">
       <div className="calculator-wrapper__main">
-        <div className="calculcator-panel">Nothing yet </div>
+        <div className="calculcator-panel">
+         </div>
         <div onClick={resetClick} className="calculator-block"> AC </div>
         <div onClick={handleClick} className="calculator-block"> +/- </div>
         <div onClick={handleClick} className="calculator-block"> % </div>
