@@ -45,6 +45,10 @@ CALL STACK : where you are in your program. Place where execution context get st
 
 SCOPE: 3 types of scope - global scope, function scope (variables only accessible inside), block scope (variables are accessible only inside block, so between {} HOWEVER this only applies to let and const!
 
+**CLASSES**
+A class defines the shape of a type of object
+Why not using prototypes? It is easier with classes.
+
 **HOISTING**
 = Makes some types of variables accessible in the code before they are actually declared. LET and CONST variables are unitialized. Var variables are hoisted. function example() will not be accessible before. But var example = function() will be hoisted, so we can call it earlier. IF WE TRY TO ACCESS VAR VARIABLE VEFORE INITIALIZATION IT WILL SHOW US UNDEFINED BECAUSE THE JS KNOWS IT WILL BE THERE BUT THIS IS NOT THE CASE WITH CONST AND LET. SAME WITH ARROW FUNCTION, won’t see it. ALSO VARIABLES WITH VAR Will be declared in the window object. UNLIKE CONST AND LET. (console.log(x === window.x)
 
@@ -78,7 +82,7 @@ IT IS HIGH PERFOMANR> IF YOU WANNA REMOVE DUPLICATES
 
 **MAPS**
 Everything can be a key, array, obj, string number, boolean. Data stracure, mapping Keyes to value. In objects the key is usually a stringconst rest = new Map();
-rest.ser(‘name’, ‘classico italiano’)//primitives
+rest.set(‘name’, ‘classico italiano’)//primitives
 Number, boolean, string, null, undefined
 
 **objects**
@@ -106,6 +110,8 @@ A function that receives another function as an argument that returns a new func
 Const greet = () = {
 btnClose.addEventListener(‘click’, greet)
 }
+
+[1,3,4].map is also a higher order function 
 
 **CALLBACK function is a very popular concept in programming**
 Make it easier to split the code.
@@ -320,3 +326,28 @@ const sumWithInitial = arr.reduce(
 sumWithInitial
 (8) [1, 2, 2, 4, 5, 98, 7, 2]
 arr = [[1,2], [2,4,5], [98,7,2]]
+
+**using parameters differently**
+function countBy(items, groupName) {
+	let counts = []
+	for (let item of items) {
+		let name = groupName(item)
+		let known = counts.findIndex(c=> c.name == name)
+		if (known == -1) {
+			counts.push({name, count:1})
+		} else {
+			counts[known].count++
+		}
+	}
+	return counts;
+}
+countBy([1,2,3,4,5], n => n > 2)
+
+
+
+function every(arr, num){
+    for (let i in arr) {
+        console.log(num(i))
+    }
+}
+every([1,3,5,6,90], n => n >2)
