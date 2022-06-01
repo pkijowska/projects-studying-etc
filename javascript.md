@@ -111,7 +111,7 @@ Const greet = () = {
 btnClose.addEventListener(‘click’, greet)
 }
 
-[1,3,4].map is also a higher order function 
+[1,3,4].map is also a higher order function
 
 **CALLBACK function is a very popular concept in programming**
 Make it easier to split the code.
@@ -351,3 +351,15 @@ function every(arr, num){
     }
 }
 every([1,3,5,6,90], n => n >2)
+
+**how to display elements of arrays in array**
+const arr = [["example", "example1"], ["another", "another1"]]
+for (let [from, to] of resy) {
+    addEdge(from, to)
+}
+if we need to use first and last el from each array we can do this
+
+**difference for...in and for...of**
+The for...in statement iterates over the enumerable properties of an object.
+
+The for...of statement iterates over values that the iterable object defines to be iterated over.
