@@ -363,3 +363,21 @@ if we need to use first and last el from each array we can do this
 The for...in statement iterates over the enumerable properties of an object.
 
 The for...of statement iterates over values that the iterable object defines to be iterated over.
+
+**benefits of use strict**
+"use strict";
+x = 3.14;       // This will cause an error because x is not declared
+otherwise without use strict it will work and add let or var in the background
+
+**how to test**
+try{
+    console.log("you see ", look())
+} catch(error) {
+    console.log( "something went wrong" + error)
+} finally {
+	console.log("do this too")
+}
+
+finally - no matter what happens in the try block run this
+
+it will give us this: "something went wrongReferenceError: look is not defined"
