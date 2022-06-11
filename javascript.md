@@ -381,3 +381,29 @@ try{
 finally - no matter what happens in the try block run this
 
 it will give us this: "something went wrongReferenceError: look is not defined"
+
+
+**increment a value whilst calling a function by using a closure**
+
+Closures are functions that refer to independent (free) variables.
+
+In short, variables from the parent function of the closure remain bound from the parent's scope.
+
+var increment = (function(n) {
+  return function() {
+    n += 1;
+    return n;
+  }
+}(0)); // -1 if you want the first increment to return 0
+
+console.log(increment());
+console.log(increment());
+console.log(increment());
+
+or you can do this: var n = 0;
+
+function increment(){
+
+  n++;
+  return n;
+}
