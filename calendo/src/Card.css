@@ -1,0 +1,11 @@
+.card {
+  border-radius: 10%;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
