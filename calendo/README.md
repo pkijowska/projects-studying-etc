@@ -3,8 +3,11 @@ https://github.com/Jobsity/ReactChallenge
 
 #### Plan
 
-- [] Add calendar
-- [] Edit days with todos
+- [ ] Add calendar view
+- [ ] Ability to add daily reminders
+- [ ] Edit daily reminders
+- [ ] Clicking on a arrow shows the view for previous/next month
+- [ ] Unit test 
 
 ## Run
 In the project directory, you can run:

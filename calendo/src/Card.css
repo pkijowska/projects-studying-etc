@@ -1,8 +1,10 @@
 .card {
-  border-radius: 10%;
   border: 1px solid black;
   width: 100px;
   height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-wrapper {
@@ -16,5 +18,5 @@
   border: 1px solid black;
   width: 100px;
   height: 20px;
-  background: blue;
+  background: rgb(177, 218, 240);
 }
