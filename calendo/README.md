@@ -7,7 +7,8 @@ https://github.com/Jobsity/ReactChallenge
 - [ ] Ability to add daily reminders
 - [ ] Edit daily reminders
 - [ ] Clicking on a arrow shows the view for previous/next month
-- [ ] Unit test 
+- [ ] Unit test
+- /calendar will show the main calendar view
 
 ## Run
 In the project directory, you can run:

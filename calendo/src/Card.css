@@ -14,9 +14,15 @@
 }
 
 .mini-card {
-  border-radius: 10%;
+  border-radius:10% 10%;
   border: 1px solid black;
   width: 100px;
   height: 20px;
   background: rgb(177, 218, 240);
+}
+
+.card-today {
+  background-color: orange;
+  padding: 0.7rem;
+  border-radius: 90%;
 }
