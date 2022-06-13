@@ -4,10 +4,14 @@ import Card from './Card.js';
 function MainView() {
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
-  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfTheWeek = now.getDay();
-  console.log(weekdays[dayOfTheWeek])
-
+  const nameOfTheWeek = weekdays[dayOfTheWeek];
+  const currentMonth = new Date().getMonth() + 1;
+  const currYear = new Date().getYear();
+  const nameOfMonth = new Date().toLocaleString(
+    'default', {month: 'long'}
+  );
   return (
     <div>
       <ul>
@@ -23,7 +27,7 @@ function MainView() {
       </ul>
       <div className="card-wrapper">
         {[...Array(daysinMonth)]
-          .map(()=> <Card />)
+          .map((num, i)=> <Card year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} />)
         }
       </div>
 

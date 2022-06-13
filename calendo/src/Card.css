@@ -8,4 +8,5 @@
 .card-wrapper {
   display: flex;
   flex-wrap: wrap;
+  width: 719px;
 }
