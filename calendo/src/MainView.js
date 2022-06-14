@@ -10,13 +10,16 @@ function MainView() {
   const dayOfTheWeek = now.getDay();
   const nameOfTheWeek = weekdays[dayOfTheWeek];
   const currentMonth = now.getMonth() + 1;
+  const previousMonth = now.getMonth();
+  const nextMonth = now.getMonth() +2;
   const currYear = now.getFullYear();
   const nameOfMonth = now.toLocaleString(
     'default', {month: 'long'}
   );
   const d = new Date(`${nameOfMonth} ${1}, ${currYear} 01:15:00`);
   let day = d.getDay();
-  const today= now.getDate();
+  const today = now.getDate();
+  const daysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
 
   return (
     <div>
@@ -30,7 +33,7 @@ function MainView() {
         <DaysOfTheWeek day="Saturday" />
         <DaysOfTheWeek day="Sunday" />
         {[...Array(day-1)]
-          .map((num, i)=> <Card  />)
+          .map((num, i)=> <Card prevMonthCount={daysInPreviousMonth} num={day-1} iteration={i} />)
         }
 
         {[...Array(daysinMonth)]
