@@ -26,3 +26,14 @@
   padding: 0.7rem;
   border-radius: 90%;
 }
+
+.todo {
+  width: 80px;
+  height: 80px;
+  border-radius: 20%;
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none;
+}
