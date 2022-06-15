@@ -27,6 +27,7 @@ function Card(props) {
       console.log(item && item.id, props.num+1)
       if (props.num+1 === (item && item.id)) {
         newData[itemIndex].calendarEvent = event.target.value;
+        console.log(calendar, 'calendo')
         setCalendar(newData)
         //do I need this?
         // item.calendarEvent = event.target.value;
@@ -36,7 +37,7 @@ function Card(props) {
         let newState = {id: props.num+1, open: 'open', calendarEvent: event.target.value}
         setCalendar([...calendar, newState])
       }
-      console.log(calendar, 'cal')
+      // console.log(calendar, 'cal')
 
     })
 
