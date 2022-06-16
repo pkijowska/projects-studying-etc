@@ -17,29 +17,30 @@ function Card(props) {
     // setCalendar([{open: 'open', id: props.num+1}, ...calendar])
   }
 
+  let newData = [...calendar];
   const handleTodo = (event) => {
-    var newData = [...calendar];
     // newData[id].title = title;
     // this.setState({newData});
 
     newData.forEach((item, itemIndex) => {
       // console.log(calendar, (props.num+1 === (item && item.id)), props.num+1, item && item.id)
-      console.log(item && item.id, props.num+1)
       if (props.num+1 === (item && item.id)) {
-        newData[itemIndex].calendarEvent = event.target.value;
-        console.log(calendar, 'calendo')
-        setCalendar(newData)
+        // newData[itemIndex].calendarEvent = event.target.value;
+        // console.log('problem1')
+        // setCalendar(newData)
         //do I need this?
         // item.calendarEvent = event.target.value;
         // let newState = {id: props.num+1, open: 'open', calendarEvent: event.target.value}
         // return { ...newState }
       } else {
         let newState = {id: props.num+1, open: 'open', calendarEvent: event.target.value}
-        setCalendar([...calendar, newState])
+        setCalendar([...newData, newState])
       }
       // console.log(calendar, 'cal')
 
     })
+    props.setTodos({id: props.num+1, open: 'open', calendarEvent: event.target.value});
+
 
   }
 

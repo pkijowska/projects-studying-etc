@@ -1,8 +1,11 @@
 import './App.css';
 import Card from './Card.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
+import React, { useState } from 'react';
 
 function MainView() {
+  // const [todos, setTodos]= useState("")
+  const [calendar, setCalendar] = useState([{id: 15, open: 'hidden', calendarEvent: "Go to pilates classes"}]);
 
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
@@ -21,6 +24,13 @@ function MainView() {
   const today = now.getDate();
   const daysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
 
+
+  const setTodos = (data) => {
+    setCalendar([...calendar, data])
+    console.log(calendar, 'WHAT IS')
+
+  }
+
   return (
     <div>
       <h1>Calendo for {nameOfMonth}</h1>
@@ -37,7 +47,7 @@ function MainView() {
         }
 
         {[...Array(daysinMonth)]
-          .map((num, i)=> <Card todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} />)
+          .map((num, i)=> <Card todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} setTodos={setTodos} />)
         }
       </div>
 
