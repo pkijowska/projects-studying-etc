@@ -4,8 +4,8 @@ import DaysOfTheWeek from './DaysOfTheWeek';
 import React, { useState } from 'react';
 
 function MainView() {
-  // const [todos, setTodos]= useState("")
-  const [calendar, setCalendar] = useState([{id: 15, open: 'hidden', calendarEvent: "Go to pilates classes"}]);
+  const [calendar, setCalendar] = useState([{id: 15, open: 'hidden', calendarEvent: "Go to pilates classes"},
+  {id: 22, open: 'hidden', calendarEvent: "Study react"}]);
 
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
@@ -29,19 +29,13 @@ function MainView() {
     let newData = [...calendar];
 
     newData.forEach((item, itemIndex) => {
-      // console.log(calendar, (props.num+1 === (item && item.id)), props.num+1, item && item.id)
       if (data.id === (item && item.id)) {
         newData[itemIndex] = data;
         setCalendar(newData)
-        // do I need this?
-        // item.calendarEvent = event.target.value;
-        // let newState = {id: props.num+1, open: 'open', calendarEvent: event.target.value}
-        // return { ...newState }
       } else {
         setCalendar([...newData, data])
       }
-      // console.log(calendar, 'cal')
-      console.log(calendar, 'WHAAA')
+      // console.log(calendar, 'WHAAA')
     })
 
 
@@ -63,7 +57,7 @@ function MainView() {
         }
 
         {[...Array(daysinMonth)]
-          .map((num, i)=> <Card todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} setTodos={setTodos} />)
+          .map((num, i)=> <Card todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} setTodos={setTodos} />)
         }
       </div>
 
