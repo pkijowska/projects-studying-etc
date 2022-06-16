@@ -26,8 +26,24 @@ function MainView() {
 
 
   const setTodos = (data) => {
-    setCalendar([...calendar, data])
-    console.log(calendar, 'WHAT IS')
+    let newData = [...calendar];
+
+    newData.forEach((item, itemIndex) => {
+      // console.log(calendar, (props.num+1 === (item && item.id)), props.num+1, item && item.id)
+      if (data.id === (item && item.id)) {
+        newData[itemIndex] = data;
+        setCalendar(newData)
+        // do I need this?
+        // item.calendarEvent = event.target.value;
+        // let newState = {id: props.num+1, open: 'open', calendarEvent: event.target.value}
+        // return { ...newState }
+      } else {
+        setCalendar([...newData, data])
+      }
+      // console.log(calendar, 'cal')
+      console.log(calendar, 'WHAAA')
+    })
+
 
   }
 
