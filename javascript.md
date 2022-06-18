@@ -407,3 +407,85 @@ function increment(){
   n++;
   return n;
 }
+
+**throw an error**
+
+class PrimitiveMultiply extends Error {}
+
+function promptDirection(question) {
+    let result = prompt(question)
+    if (result == "left") return "L";
+    throw new PrimitiveMultiply("Invalid"+ result)
+}
+
+promptDirection("where do you wanna go")
+
+**working with object and non mutable elemenets**
+const box = {
+    locked: true,
+    unlock() {
+        this.locked = false;
+    },
+    lock() {
+        this.locked = true;
+    },
+    _content: [],
+    get content() {
+        if (this.locked) throw new Error("Locked!");
+        return this._content
+    }
+}_
+
+content is mutable, meaning you should not mutate it
+
+**REGEX**
+/abc/.test("abcde") => true
+\d any digit
+\w an alphanumeric character
+\s any whitespace character
+\D a character that is not a digit
+\W a nonalphanumeric character
+\S a nonwhitespace characters
+. any char except from a new line
+
+EXCEPT = ^
+I want to match any character excpet the one I will specify
+
+MORE THAN ONE DIGIT = +
+Indicated that the element may be repeated more than once
+MORE THAN ONE DIGIT or zerotimes = *
+ONE TIME OR ZERO = ?
+PATTERN SHOULD OCCUR EXACTLY SPECIFIC NR OF TIMES  {4} OR {2,4}
+CHECK MORE THAN ONE ELEMENT AT A TIME = ++
+CHECK ONE OF FEW ELEMENTS IF THEY MATCH = |OR|OR
+
+**what does CI|CD mean?**
+it means continous development.
+CI = Continous integration
+
+Both involve taking the code continuously integrated and getting it able to deploy to an environment either QA or production. Continuous deployment takes the process one step further and performs the actual deployment to an environment.
+
+Successful CI means new code changes to an app are regularly built, tested, and merged to a shared repository. It’s a solution to the problem of having too many branches of an app in development at once that might conflict with each other.
+
+**how does the https work**
+HTTP was invented alongside HTML to create the first interactive, text-based web browser: the original World Wide Web. Today, the protocol remains one of the primary means of using the Internet.
+
+As a request-response protocol, HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers. HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.
+
+**network protocol**
+it is a style of communication over a network. There are protocols for sending email, fetching email, sharing files etc.
+HTTP is a protocol for retrieving named resources (chunks of information, such as web pages or pictures)
+A TCP connection works as follows: one computer must be waiting, or listening, for other computers to start talking to it. To be able to listen for different kinds of communication at the same time on a single machine, each listener has a number (called a port) associated with it. Most protocols specify which port should be used by default. For example, when we want to send an email using the SMTP protocol, the machine through which we send it is expected to be listening on port 25.
+Another computer can then establish a connection by connecting to the target machine using the correct port number. If the target machine can be reached and is listening on that port, the connection is successfully created. The listening computer is called the server, and the connecting computer is called the client.
+To become part of the Web, all you need to do is connect a machine to the Internet and have it listen on port 80 with the HTTP protocol so that other computers can ask it for documents.
+
+Each document on the Web is named by a Uniform Resource Locator (URL), which looks something like this:
+
+  http://eloquentjavascript.net/13_browser.html
+ |      |                      |               |
+ protocol       server               path
+
+**how to convert obj into array**
+let arrayish = {0: "one", 1: "two", length: 2};
+let array = Array.from(arrayish)
+//["one","two"]
