@@ -2,29 +2,20 @@ import './Card.css';
 import React, { useState } from 'react';
 
 function Card(props) {
+  //I dont; need this
   const [calendar, setCalendar] = useState([{id: 15, isSubmitted: true,open: 'hidden', calendarEvent: "Go to pilates classes"}]);
-
-  const renderCurrentMonthCount = props.todayNr === props.num+1 ? <span className="card-today">{props.num+1}</span> : props.num+1;
-  const checkForPreviousMonth = props.prevMonthCount ? props.prevMonthCount - props.num+1+props.iteration : renderCurrentMonthCount;
+  const currentlyClickedCard = props && props.calendar && props.calendar.find(element => element.id === props.num+1);
+  // const addClass = currentlyClickedCard && currentlyClickedCard.open ? 'open' : 'hidden';
+  const displayTodayCard = props.todayNr === props.num+1 ? <span className="card-today">{props.num+1}</span> : props.num+1;
+  const checkForPreviousMonth = props.prevMonthCount ? props.prevMonthCount - props.num+1+props.iteration : displayTodayCard;
 
   const handleClick = (e) => {
-
+    // props.setTodos({id: props.num+1, open: 'open'})
+    // console.log(props.calendar, 'cal')
   }
 
   const displayCalendar = () => {
-    // console.log(props && props.calendar, 'p')
-    // if (props && props.calendar) {
-    //     return props.calendar.forEach((el)=> {
-    //     if (el.id === props.num+1) {
-    //       console.log(el, 'elm', props.num+1)
-    //       return el.calendarEvent
-    //     }
-    //   })
-    // } else {
-    //   return 'jkkk'
-    // }
-    const result =props && props.calendar && props.calendar.find(element => element.id === props.num+1)
-    console.log(result, 'res')
+    const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
     return result && result.isSubmitted ? result.calendarEvent : ''
   }
 
@@ -35,16 +26,15 @@ function Card(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
-    result.isSubmitted = true;
-    console.log(result)
-    // displayCalendar()
-    // props.setTodos({id: props.num+1, open: 'open', calendarEvent: e.target.value});
-    // console.log('hey')
+    // result.isSubmitted = true;
+    //can I do this?
+    props.setTodos({id: props.num+1, open: 'open', isSubmitted: true, calendarEvent: result.calendarEvent});
   }
 
-  const todoSnippet =
-  <form onSubmit={handleSubmit}>
-   <div className={`todo ${calendar.open}`}>  <textarea
+
+  const editTodo =
+  <form  onSubmit={(e) => handleSubmit(e)}>
+   <div className={`todo`}>  <textarea
             value={calendar.calendarEvent}
             onChange={handleTodo}
             rows={5}
@@ -52,15 +42,15 @@ function Card(props) {
           />
     </div>
     <button type="submit">Add</button>
-  </form>
+  </form>;
 
   return(
     <div onClick={handleClick} className="card">
-    { checkForPreviousMonth }
-    {todoSnippet}
-    <h6>
-    {displayCalendar()}
-    </h6>
+      { checkForPreviousMonth }
+      {editTodo}
+      <h6>
+      {displayCalendar()}
+      </h6>
     </div>
   )
 }

@@ -27,13 +27,17 @@
   border-radius: 90%;
 }
 
-.todo {
+/* .todo {
   width: 80px;
   height: 80px;
   border-radius: 20%;
   border: 1px solid black;
-}
+} */
 
 .hidden {
   display: none;
+}
+
+textarea {
+  border-radius: 25%;
 }
