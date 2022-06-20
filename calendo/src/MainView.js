@@ -4,7 +4,6 @@ import DaysOfTheWeek from './DaysOfTheWeek';
 import React, { useState } from 'react';
 
 function MainView() {
-  const obj = []
   const [calendar, setCalendar] = useState([
     {id: 1, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 2, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
@@ -19,19 +18,19 @@ function MainView() {
     {id: 11, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 12, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: "Work out a lot"},
-    {id: 14, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
+    {id: 14, isSubmitted: 'false', open: 'open', calendarEvent: ""},
     {id: 15, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 16, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 18, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 19, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 20, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
+    {id: 20, isSubmitted: 'false', open: 'open', calendarEvent: ""},
     {id: 21, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 22, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 23, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 24, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 25, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 26, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
+    {id: 26, isSubmitted: 'false', open: 'open', calendarEvent: ""},
     {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: "Be happy"},
     {id: 28, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 29, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
@@ -54,23 +53,28 @@ function MainView() {
   let exactDayOfWeek = fullDateOfFirstDayOfMonth.getDay();
   const today = now.getDate();
   const numberOfdaysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
-
+  const thisMonth = calendar.slice(0, daysinMonth)
+  // setCalendar(thisMonth)
 
   const setTodos = (data) => {
     let newData = [...calendar];
 
-    newData.forEach((item, itemIndex) => {
+    const updatedClendar = newData.map((item, itemIndex) => {
+
       if (data.id === (item && item.id)) {
-        newData[itemIndex] = data;
-        setCalendar(newData)
+        return newData[itemIndex] = data;
       } else {
-        setCalendar([...newData, data])
+        return item
       }
     })
-
+    console.log(updatedClendar, 'up')
+    setCalendar(updatedClendar)
 
   }
-  console.log('hey', calendar)
+  // {[...Array(exactDayOfWeek-1)]
+  //   .map((num, i)=> <Card card={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
+  // }
+
   return (
     <div>
       <h1>Calendo for {nameOfMonth}</h1>
@@ -82,12 +86,9 @@ function MainView() {
         <DaysOfTheWeek day="Friday" />
         <DaysOfTheWeek day="Saturday" />
         <DaysOfTheWeek day="Sunday" />
-        {[...Array(exactDayOfWeek-1)]
-          .map((num, i)=> <Card prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
-        }
 
-        {[...Array(daysinMonth)]
-          .map((num, i)=> <Card todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} setTodos={setTodos} />)
+        {thisMonth
+          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} setTodos={setTodos} />)
         }
       </div>
 

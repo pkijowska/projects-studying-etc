@@ -2,55 +2,49 @@ import './Card.css';
 import React, { useState } from 'react';
 
 function Card(props) {
-  //I dont; need this
-  const [calendar, setCalendar] = useState([{id: 15, isSubmitted: true,open: 'hidden', calendarEvent: "Go to pilates classes"}]);
-  const currentlyClickedCard = props && props.calendar && props.calendar.find(element => element.id === props.num+1);
-  // const addClass = currentlyClickedCard && currentlyClickedCard.open ? 'open' : 'hidden';
-  const displayTodayCard = props.todayNr === props.num+1 ? <span className="card-today">{props.num+1}</span> : props.num+1;
-  const checkForPreviousMonth = props.prevMonthCount ? props.prevMonthCount - props.num+1+props.iteration : displayTodayCard;
+  const [toDo, setEvent] = useState([{}]);
 
-  const handleClick = (e) => {
-    // props.setTodos({id: props.num+1, open: 'open'})
-    // console.log(props.calendar, 'cal')
-  }
-
-  const displayCalendar = () => {
-    const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
-    return result && result.isSubmitted ? result.calendarEvent : ''
-  }
+  const { id, calendarEvent, isSubmitted, open } = props.card;
 
   const handleTodo = (event) => {
-    props.setTodos({id: props.num+1, open: 'open', isSubmitted: false, calendarEvent: event.target.value});
+    setEvent({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value})
+    // props.setTodos({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value});
+    // const result = props.calendar.find(element => element.id === id)
+    // console.log(result,'res')
+    // result.isSubmitted = false;
+    // result.calendarEvent = event.target.value;
+    console.log(toDo)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
-    // result.isSubmitted = true;
-    //can I do this?
-    props.setTodos({id: props.num+1, open: 'open', isSubmitted: true, calendarEvent: result.calendarEvent});
+    // console.log(e.target.value, 'toDo')
+    props.setTodos(toDo);
+    // const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
+    // // result.isSubmitted = true;
+    // //can I do this?
+    // props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
   }
 
-
   const editTodo =
-  <form  onSubmit={(e) => handleSubmit(e)}>
-   <div className={`todo`}>  <textarea
-            value={calendar.calendarEvent}
+  <form  onSubmit={handleSubmit}>
+   {isSubmitted && <div className={`todo ${open}`}>
+      <textarea
+            value={toDo.calendarEvent}
             onChange={handleTodo}
             rows={5}
-            cols={5}
+            cols={9}
           />
+      <button type="submit">Add</button>
     </div>
-    <button type="submit">Add</button>
+  }
   </form>;
 
   return(
-    <div onClick={handleClick} className="card">
-      { checkForPreviousMonth }
+    <div className="card">
+      {id}
+      {calendarEvent}
       {editTodo}
-      <h6>
-      {displayCalendar()}
-      </h6>
     </div>
   )
 }
