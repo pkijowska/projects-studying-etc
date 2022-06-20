@@ -8,12 +8,6 @@ function Card(props) {
 
   const handleTodo = (event) => {
     setEvent({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value})
-    // props.setTodos({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value});
-    // const result = props.calendar.find(element => element.id === id)
-    // console.log(result,'res')
-    // result.isSubmitted = false;
-    // result.calendarEvent = event.target.value;
-    console.log(toDo)
   }
 
   const handleSubmit = (e) => {
@@ -24,6 +18,11 @@ function Card(props) {
     // // result.isSubmitted = true;
     // //can I do this?
     // props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
+  }
+
+  const handleClick = () => {
+    console.log(id, 'handleClick')
+    props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
   }
 
   const editTodo =
@@ -41,7 +40,7 @@ function Card(props) {
   </form>;
 
   return(
-    <div className="card">
+    <div onClick={handleClick} className="card">
       {id}
       {calendarEvent}
       {editTodo}
