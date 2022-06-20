@@ -1,0 +1,56 @@
+.card {
+  border: 1px dashed black;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__details {
+    display: block;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1070px;
+}
+
+.mini-card {
+  border-radius:10% 10%;
+  border: 1px solid black;
+  width: 150px;
+  height: 20px;
+  background: rgb(177, 218, 240);
+  text-align: center;
+}
+
+.card-today {
+  background-color: orange;
+  padding: 0.7rem;
+  border-radius: 90%;
+}
+
+form {
+  width: min-content;
+}
+
+.todo {
+  // width: 70px;
+  // height: 70px;
+  // border-radius: 20%;
+  // border: 1px solid black;
+
+  &__submit-button {
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,4 +1,4 @@
-import './Card.css';
+import './Card.scss';
 import React, { useState } from 'react';
 
 function Card(props) {
@@ -25,6 +25,9 @@ function Card(props) {
     props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
   }
 
+  const displayNumber = () => props.todayNr === id ? <p className="card-today">{id}</p> : <p className="center">{id}</p>;
+
+  console.log(displayNumber, 'num')
   const editTodo =
   <form  onSubmit={handleSubmit}>
    {isSubmitted && <div className={`todo ${open}`}>
@@ -34,16 +37,18 @@ function Card(props) {
             rows={5}
             cols={9}
           />
-      <button type="submit">Add</button>
+      <button className="todo__submit-button" type="submit">Add</button>
     </div>
   }
   </form>;
 
   return(
     <div onClick={handleClick} className="card">
-      {id}
-      {calendarEvent}
-      {editTodo}
+      <div className="card__details">
+        <p className="center">{displayNumber()}</p>
+        <p>{calendarEvent}</p>
+        {editTodo}
+      </div>
     </div>
   )
 }

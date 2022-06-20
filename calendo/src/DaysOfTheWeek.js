@@ -1,7 +1,7 @@
-import './Card.css';
+import './Card.scss';
 
 function DaysOfTheWeek(props) {
-  
+
   return(
     <div className="mini-card">
       {props.day}

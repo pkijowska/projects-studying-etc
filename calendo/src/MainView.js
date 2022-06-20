@@ -77,7 +77,7 @@ function MainView() {
 
   return (
     <div>
-      <h1>Calendo for {nameOfMonth}</h1>
+      <h1 className="center">Calendo for {nameOfMonth}</h1>
       <div className="card-wrapper">
         <DaysOfTheWeek day="Monday" />
         <DaysOfTheWeek day="Tuesday" />
