@@ -1,4 +1,4 @@
-import './Card.scss';
+import '../Card.scss';
 
 function DaysOfTheWeek(props) {
 

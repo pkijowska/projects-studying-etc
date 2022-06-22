@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 import Card from './Card.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
 import React, { useState } from 'react';
@@ -17,21 +17,21 @@ function MainView() {
     {id: 10, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 11, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 12, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: "Work out a lot"},
+    {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: "Work out"},
     {id: 14, isSubmitted: 'false', open: 'open', calendarEvent: ""},
     {id: 15, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 16, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
+    {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: "Read 50 pages of a book"},
     {id: 18, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 19, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 20, isSubmitted: 'false', open: 'open', calendarEvent: ""},
+    {id: 20, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 21, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 22, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 23, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 24, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 25, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 26, isSubmitted: 'false', open: 'open', calendarEvent: ""},
-    {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: "Be happy"},
+    {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: "Study react"},
     {id: 28, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 29, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 30, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
@@ -67,7 +67,6 @@ function MainView() {
         return item
       }
     })
-    console.log(updatedClendar, 'up')
     setCalendar(updatedClendar)
 
   }
@@ -76,8 +75,8 @@ function MainView() {
   // }
 
   return (
-    <div>
-      <h1 className="center">Calendo for {nameOfMonth}</h1>
+    <div className="calendar">
+      <h1 className="center">{nameOfMonth}, {currYear}</h1>
       <div className="card-wrapper">
         <DaysOfTheWeek day="Monday" />
         <DaysOfTheWeek day="Tuesday" />

@@ -9,7 +9,9 @@ https://github.com/Jobsity/ReactChallenge
 - [ ] Clicking on a arrow shows the view for previous/next month
 - [ ] Unit test
 - /calendar will show the main calendar view
-- [ ] Add redux 
+- [ ] Add redux
+- [ ] Add more remainders per day (not just one)
+- [ ] Ability to add a location to the day
 
 ## Run
 In the project directory, you can run:
