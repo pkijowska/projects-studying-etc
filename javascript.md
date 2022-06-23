@@ -489,3 +489,36 @@ Each document on the Web is named by a Uniform Resource Locator (URL), which loo
 let arrayish = {0: "one", 1: "two", length: 2};
 let array = Array.from(arrayish)
 //["one","two"]
+
+**linear search**
+searching one by one.
+INCLUDES, FIND, FINDINDEX, INDEXOF is one of these.
+BIG O of this is O(n) => basically if there are thousand items and our item is last we need to check them all.
+
+**binary search**
+We basically put it in half and check the half. It only works on sorted arrays.
+We can do it recursevely or using while loop.
+BIG O of this is O(log n) much better than the worst case scenario!
+
+**bubble sort**
+we swap the values one by one, it bubbles to the top.
+VERY GOOD IF YOU KNOW IT IS NEARLY sorted O(N), but for anything else not a god candidate O(n)2 :D
+
+function bubble(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j+1]) {
+                let temp = arr[j];
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+
+            }
+        }
+    }
+}
+
+**pure function**
+only depends on the parameters provided, doesnt rely on for example other variable declared outside of the function
+
+**selection sort**
+similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position

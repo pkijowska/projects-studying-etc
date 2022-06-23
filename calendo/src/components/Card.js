@@ -10,36 +10,32 @@ function Card(props) {
     setEvent({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value})
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // console.log(e.target.value, 'toDo')
-    props.setTodos(toDo);
-    // const result = props && props.calendar && props.calendar.find(element => element.id === props.num+1)
-    // // result.isSubmitted = true;
-    // //can I do this?
-    // props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   props.setTodos(toDo);
+  //
+  // }
 
   const handleClick = () => {
-    console.log(id, 'handleClick')
-    props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
+    // props.setTodos({id: id, open: 'open', isSubmitted: true, calendarEvent: calendarEvent});
+    props.clickedCard(id)
   }
 
   const displayNumber = props.todayNr === id ? <p className="card-today">{id}</p> : <p className="card-number">{id}</p>;
 
-  const editTodo =
-  <form  onSubmit={handleSubmit}>
-   {isSubmitted && <div className={`todo ${open}`}>
-      <textarea
-            value={toDo.calendarEvent}
-            onChange={handleTodo}
-            rows={5}
-            cols={9}
-          />
-      <button className="todo__submit-button" type="submit">Add</button>
-    </div>
-  }
-  </form>;
+  // const editTodo =
+  // <form  onSubmit={handleSubmit}>
+  //  {isSubmitted && <div className={`todo ${open}`}>
+  //     <textarea
+  //           value={toDo.calendarEvent}
+  //           onChange={handleTodo}
+  //           rows={5}
+  //           cols={9}
+  //         />
+  //     <button className="todo__submit-button" type="submit">Add</button>
+  //   </div>
+  // }
+  // </form>;
 
   return(
     <div onClick={handleClick} className="card">
@@ -48,7 +44,7 @@ function Card(props) {
         <ul>
           {calendarEvent.length ? <li>{calendarEvent} </li> : "" }
         </ul>
-        {editTodo}
+
       </div>
     </div>
   )

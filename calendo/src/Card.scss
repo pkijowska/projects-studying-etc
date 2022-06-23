@@ -68,10 +68,39 @@ form {
 
 .calendar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   align-items: center;
 }
 
 ul {
  list-style-type: '💡';
+}
+
+.event-card {
+  width: 200px;
+  padding: 1rem;
+  background-color: lightblue;
+  border-radius: 15%;
+  margin-right: 3rem;
+
+  &__button {
+    width: 50%;
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.05));
+    transform: scale(1);
+    transition: all .1s ease-in;
+    margin-bottom: 1rem;
+
+    &:hover {
+      animation: pulseLike 2s infinite;
+    }
+  }
+}
+
+@keyframes pulseLike {
+  0% {
+    box-shadow: 0 0 0 0px rgba(59, 89, 152, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0);
+  }
 }

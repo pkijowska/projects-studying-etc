@@ -1,7 +1,8 @@
 import '../App.css';
 import Card from './Card.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
-import React, { useState } from 'react';
+import EventView from './EventView';
+import React, { useState, Fragment } from 'react';
 
 function MainView() {
   const [calendar, setCalendar] = useState([
@@ -37,6 +38,7 @@ function MainView() {
     {id: 30, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
     {id: 31, isSubmitted: 'false', open: 'hidden', calendarEvent: "Go to pilates classes"}]);
 
+  const [curr, updateNumber] = useState();
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -56,27 +58,34 @@ function MainView() {
   const thisMonth = calendar.slice(0, daysinMonth)
   // setCalendar(thisMonth)
 
-  const setTodos = (data) => {
-    let newData = [...calendar];
-
-    const updatedClendar = newData.map((item, itemIndex) => {
-
-      if (data.id === (item && item.id)) {
-        return newData[itemIndex] = data;
-      } else {
-        return item
-      }
-    })
-    setCalendar(updatedClendar)
+  // const setTodos = (data) => {
+  //   let newData = [...calendar];
+  //
+  //   const updatedClendar = newData.map((item, itemIndex) => {
+  //
+  //     if (data.id === (item && item.id)) {
+  //       return newData[itemIndex] = data;
+  //     } else {
+  //       return item
+  //     }
+  //   })
+  //   setCalendar(updatedClendar)
+  //
+  // }
+  const clickedCard = (data) => {
+    updateNumber(data)
 
   }
+
+
   // {[...Array(exactDayOfWeek-1)]
   //   .map((num, i)=> <Card card={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
   // }
 
   return (
+    <Fragment>
+    <h1 className="center">{nameOfMonth}, {currYear}</h1>
     <div className="calendar">
-      <h1 className="center">{nameOfMonth}, {currYear}</h1>
       <div className="card-wrapper">
         <DaysOfTheWeek day="Monday" />
         <DaysOfTheWeek day="Tuesday" />
@@ -87,11 +96,13 @@ function MainView() {
         <DaysOfTheWeek day="Sunday" />
 
         {thisMonth
-          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} setTodos={setTodos} />)
+          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
         }
       </div>
+      <EventView day={curr}  year={now.getFullYear()}  month={nameOfMonth}/>
 
     </div>
+    </Fragment>
   );
 }
 
