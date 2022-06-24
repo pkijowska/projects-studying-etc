@@ -6,37 +6,39 @@ import React, { useState, Fragment } from 'react';
 
 function MainView() {
   const [calendar, setCalendar] = useState([
-    {id: 1, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 2, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 3, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 4, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 5, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 6, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 7, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 8, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 9, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 10, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 11, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 12, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: "Work out"},
-    {id: 14, isSubmitted: 'false', open: 'open', calendarEvent: ""},
-    {id: 15, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 16, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: "Read 50 pages of a book"},
-    {id: 18, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 19, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 20, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 21, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 22, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 23, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 24, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 25, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 26, isSubmitted: 'false', open: 'open', calendarEvent: ""},
-    {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: "Study react"},
-    {id: 28, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 29, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 30, isSubmitted: 'false', open: 'hidden', calendarEvent: ""},
-    {id: 31, isSubmitted: 'false', open: 'hidden', calendarEvent: "Go to pilates classes"}]);
+    {id: 1, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 2, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 3, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 4, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 5, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 6, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 7, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 8, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 9, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 10, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 11, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 12, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Work out", "Go  and see grandma", "Book dentist"]},
+    {id: 14, isSubmitted: 'false', open: 'open', calendarEvent: []},
+    {id: 15, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 16, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Read 50 pages of a book"]},
+    {id: 18, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 19, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 20, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 21, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 22, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 23, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 24, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 25, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 26, isSubmitted: 'false', open: 'open', calendarEvent: []},
+    {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Study react"]},
+    {id: 28, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 29, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 30, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
+    {id: 31, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Go to pilates classes"]
+    }
+  ]);
 
   const [curr, updateNumber] = useState();
   const now = new Date();
@@ -77,6 +79,13 @@ function MainView() {
 
   }
 
+  const addEvent = (data) => {
+    console.log(data, 'datas', curr)
+
+    //map and return a new calendar event
+    //use setCalendar
+  }
+
 
   // {[...Array(exactDayOfWeek-1)]
   //   .map((num, i)=> <Card card={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
@@ -99,7 +108,7 @@ function MainView() {
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
         }
       </div>
-      <EventView day={curr}  year={now.getFullYear()}  month={nameOfMonth}/>
+      <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth}/>
 
     </div>
     </Fragment>

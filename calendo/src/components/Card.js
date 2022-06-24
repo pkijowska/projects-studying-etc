@@ -2,13 +2,13 @@ import '../Card.scss';
 import React, { useState } from 'react';
 
 function Card(props) {
-  const [toDo, setEvent] = useState([{}]);
+  // const [toDo, setEvent] = useState([{}]);
 
   const { id, calendarEvent, isSubmitted, open } = props.card;
 
-  const handleTodo = (event) => {
-    setEvent({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value})
-  }
+  // const handleTodo = (event) => {
+  //   setEvent({id: id, open: 'open', isSubmitted: false, calendarEvent: event.target.value})
+  // }
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -42,7 +42,7 @@ function Card(props) {
       <div className="card__details">
         <p className="center">{displayNumber}</p>
         <ul>
-          {calendarEvent.length ? <li>{calendarEvent} </li> : "" }
+          {calendarEvent.length ? <li>{calendarEvent.length} event </li> : "" }
         </ul>
 
       </div>
