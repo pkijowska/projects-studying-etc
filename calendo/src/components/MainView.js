@@ -116,7 +116,6 @@ function MainView() {
         <DaysOfTheWeek day="Friday" />
         <DaysOfTheWeek day="Saturday" />
         <DaysOfTheWeek day="Sunday" />
-
         {thisMonth
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
         }

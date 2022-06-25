@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 
 
 function EventView(props) {
-
-  const {day, month, year} = props;
+  const {day, month, year, calendar} = props;
   const [addIsClicked, add] = useState(false)
   const [newEvent, addEvent] = useState('')
 
@@ -39,9 +38,16 @@ function EventView(props) {
   return (
     <div className="event-card">
       <h3 className="event-card__heading">TO DO LIST</h3>
-      <h5>Clicked date: {day} {month} {year}</h5>
-      <h5>  Events:  </h5>
+      <h3 className="event-card__date"> {day} {month} {year} </h3>
+      <ul>
+        {calendar.map((element) => {
+          if (element.id === day) {
+            return element.calendarEvent.map((el)=> (<li>{el}</li>))
+          }
+        })}
+      </ul>
       <button onClick={showForm} className="event-card__button">  Add an event </button>
+
       { day && addIsClicked && editTodo}
     </div>
   )

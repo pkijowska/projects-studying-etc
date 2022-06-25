@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 .card {
-  border: 1px dashed black;
-  width: 150px;
+  border: 1px dotted black;
+  width: 120px;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Dancing Script', cursive;
   font-size: 20px;
+  margin-right: 2px;
+  margin-bottom: 2px;
 
   &__details {
     display: block;
@@ -32,13 +34,13 @@
 .card-wrapper {
   display: flex;
   flex-wrap: wrap;
-  width: 1070px;
+  width: 980px;
 }
 
 .mini-card {
   border-radius:10% 10%;
   border: 1px solid black;
-  width: 150px;
+  width: 122px;
   height: 20px;
   background: rgb(177, 218, 240);
   text-align: center;
@@ -48,6 +50,7 @@
   background-color: orange;
   padding: 0.7rem;
   border-radius: 90%;
+  font-family: "Architects Daughter", cursive;
   width: min-content;
 }
 
@@ -92,6 +95,10 @@ ul {
   box-sizing: border-box;
   font-family: "Architects Daughter", cursive;
   font-size: 2rem;
+
+  &__date {
+    text-align: center;
+  }
 
   &__heading {
    transform: rotate(2deg);
