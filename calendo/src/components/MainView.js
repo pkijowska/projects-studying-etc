@@ -80,8 +80,21 @@ function MainView() {
   }
 
   const addEvent = (data) => {
-    console.log(data, 'datas', curr)
-
+    const pushEvents = calendar.map(element =>{
+      if (element.id === curr) {
+        console.log(element.calendarEvent, 'dat')
+        return {
+          ...element,
+          calendarEvent: [
+            ...element.calendarEvent, data
+          ]
+        }
+      } else {
+        return element
+      }
+    })
+    setCalendar(pushEvents)
+    console.log(calendar, 'cal')
     //map and return a new calendar event
     //use setCalendar
   }

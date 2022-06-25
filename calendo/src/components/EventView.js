@@ -38,6 +38,7 @@ function EventView(props) {
 
   return (
     <div className="event-card">
+      <h3 className="event-card__heading">TO DO LIST</h3>
       <h5>Clicked date: {day} {month} {year}</h5>
       <h5>  Events:  </h5>
       <button onClick={showForm} className="event-card__button">  Add an event </button>

@@ -78,11 +78,29 @@ ul {
 }
 
 .event-card {
-  width: 200px;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-width: 300px;
+  background: white;
+  background-image: radial-gradient(lightblue 10%, transparent 0);
+  background-size: 25px 25px;
+  border-radius: 20px;
+  margin: 1rem;
+  box-shadow: 4px 3px 7px 2px #00000040;
   padding: 1rem;
-  background-color: lightblue;
-  border-radius: 15%;
-  margin-right: 3rem;
+  box-sizing: border-box;
+  font-family: "Architects Daughter", cursive;
+  font-size: 2rem;
+
+  &__heading {
+   transform: rotate(2deg);
+   padding: 0.2rem 1.2rem;
+   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+   background-color: #A7C7E7;
+   font-size: 2rem;
+   text-align: center;
+  }
 
   &__button {
     width: 50%;

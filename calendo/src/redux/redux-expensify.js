@@ -91,6 +91,16 @@ const removeExpense = ({id}={}) {
   id
 }
 
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+  return expenses.filter((expense)=> {
+    const startDateMatch = typeof startDate !== 'number';
+    const endDateMatch;
+    const textMatch;
+
+    return startDateMatch && endDateMatch && textMatch
+  }
+}
+
 const setStartDate = (startDate) => ({
   type: 'SET_START_DATE',
   startDate
@@ -108,7 +118,8 @@ const store = createStore(combineReducers({
 }));
 
 store.subscribe(()=> {
-  console.log('hey')
+  const state = store.getState()
+  const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 })
 
 const expenseOne = store.dispatch(addExpense({id: 5, description: 'Rent', amount: 100}))

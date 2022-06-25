@@ -1,10 +1,12 @@
 # Inspired by:
-https://github.com/Jobsity/ReactChallenge
+Saw this challenge somewhere on github... https://github.com/Jobsity/ReactChallenge
+As a todo list is a common interview task I decided to take it to another level and create a calendar where you can add a new event and see the monthly snapshot of a todo list.
+
 
 #### Plan
 
 - [ ] Add calendar view
-- [ ] Ability to add daily reminders
+- [ ] Ability to add daily reminders / delete them
 - [ ] Edit daily reminders
 - [ ] Clicking on a arrow shows the view for previous/next month
 - [ ] Unit test
