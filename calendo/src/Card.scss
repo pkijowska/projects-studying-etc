@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 .card {
-  border: 1px dotted black;
+  border: 1px dotted grey;
   width: 120px;
-  height: 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,7 @@
   font-size: 20px;
   margin-right: 2px;
   margin-bottom: 2px;
+  background: white;
 
   &__details {
     display: block;
@@ -38,12 +39,15 @@
 }
 
 .mini-card {
-  border-radius:10% 10%;
-  border: 1px solid black;
-  width: 122px;
+  border-radius: 10% 10%;
+  border: 1px dotted #A7C7E7;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  width: 120px;
   height: 20px;
-  background: rgb(177, 218, 240);
+  background: #A7C7E7;
   text-align: center;
+  padding: 0.5rem 0;
 }
 
 .card-today {
@@ -59,6 +63,7 @@ form {
 }
 
 .todo {
+  display: flex;
 
   &__submit-button {
     width: 100%;
@@ -77,7 +82,9 @@ form {
 }
 
 ul {
- list-style-type: '💡';
+  list-style: none;
+  padding: 0;
+ // list-style-type: '💡';
 }
 
 .event-card {
@@ -110,12 +117,25 @@ ul {
   }
 
   &__button {
-    width: 50%;
-    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.05));
-    transform: scale(1);
-    transition: all .1s ease-in;
-    margin-bottom: 1rem;
+    // width: 50%;
+    // filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.05));
+    // transform: scale(1);
+    // transition: all .1s ease-in;
+    // margin-bottom: 1rem;
+    padding: 0;
+    border: none;
+    // font-family: "Architects Daughter", cursive;
+    // text-decoration: none;
+    // padding-bottom: 3px;
+    // border-radius: 5px;
 
+    span {
+      background: #f1f5f8;
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 2px solid hsl(198, 1%, 29%);
+    }
     &:hover {
       animation: pulseLike 2s infinite;
     }
@@ -129,4 +149,19 @@ ul {
   100% {
     box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0);
   }
+}
+
+
+form input {
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0.7rem;
+  border-bottom-right-radius: 15px 3px;
+  border-bottom-left-radius: 3px 15px;
+  border: solid 3px transparent;
+  border-bottom: dashed 4px blue;
+  font-family: "Architects Daughter", cursive;
+  font-size: 1.2rem;
+  color: hsla(260, 2%, 25%, 0.7);
+  min-width: 80%;
 }

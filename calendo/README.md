@@ -14,6 +14,7 @@ As a todo list is a common interview task I decided to take it to another level 
 - [ ] Add redux
 - [ ] Add more remainders per day (not just one)
 - [ ] Ability to add a location to the day
+- [ ] Make it accessible
 
 ## Run
 In the project directory, you can run:

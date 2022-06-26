@@ -10,6 +10,7 @@ function EventView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addEvent(newEvent)
+    addEvent('')
     add(false)
   }
 
@@ -21,16 +22,19 @@ function EventView(props) {
     add(true)
   }
 
+  function removeEvent(i) {
+    props.removeEvent({day, i})
+  }
+
   const editTodo =
   <form  onSubmit={handleSubmit}>
    {<div className={`todo `}>
-      <textarea
+      <input
+        placeholder="Type a new event"
             value={newEvent}
             onChange={handleTodo}
-            rows={5}
-            cols={9}
           />
-      <button className="todo__submit-button" type="submit">Add</button>
+      <button onClick={showForm} className="event-card__button"> <span> ➕ </span></button>
     </div>
     }
   </form>;
@@ -42,13 +46,14 @@ function EventView(props) {
       <ul>
         {calendar.map((element) => {
           if (element.id === day) {
-            return element.calendarEvent.map((el)=> (<li>{el}</li>))
+            return element.calendarEvent.map((el,i)=> {
+              return <li onClick={(e) => removeEvent(i)}>{el} ❌ </li>
+            })
           }
         })}
       </ul>
-      <button onClick={showForm} className="event-card__button">  Add an event </button>
 
-      { day && addIsClicked && editTodo}
+      {  editTodo}
     </div>
   )
 }

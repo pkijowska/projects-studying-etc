@@ -42,7 +42,7 @@ function Card(props) {
       <div className="card__details">
         <p className="center">{displayNumber}</p>
         <ul>
-          {calendarEvent.length ? <li>{calendarEvent.length} event </li> : "" }
+          {calendarEvent.length ? <p>💡{calendarEvent.length} event </p> : "" }
         </ul>
 
       </div>

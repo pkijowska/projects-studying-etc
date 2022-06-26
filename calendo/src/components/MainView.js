@@ -57,6 +57,7 @@ function MainView() {
   let exactDayOfWeek = fullDateOfFirstDayOfMonth.getDay();
   const today = now.getDate();
   const numberOfdaysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
+  console.log(calendar, 'call')
   const thisMonth = calendar.slice(0, daysinMonth)
   // setCalendar(thisMonth)
 
@@ -76,13 +77,27 @@ function MainView() {
   // }
   const clickedCard = (data) => {
     updateNumber(data)
+  }
 
+  const removeEvent = (data) => {
+    const removeEvents = calendar.map(element =>{
+      if (element.id === data.day) {
+        const afterRemoveArr = element.calendarEvent.filter((el,i)=> i !== data.i)
+        return {
+          ...element,
+          calendarEvent: afterRemoveArr
+        }
+      } else {
+        return element
+      }
+    })
+    // console.log(removeEvents, 'rem')
+    setCalendar(removeEvents)
   }
 
   const addEvent = (data) => {
     const pushEvents = calendar.map(element =>{
       if (element.id === curr) {
-        console.log(element.calendarEvent, 'dat')
         return {
           ...element,
           calendarEvent: [
@@ -94,7 +109,6 @@ function MainView() {
       }
     })
     setCalendar(pushEvents)
-    console.log(calendar, 'cal')
     //map and return a new calendar event
     //use setCalendar
   }
@@ -120,7 +134,7 @@ function MainView() {
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
         }
       </div>
-      <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth}/>
+      <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth} removeEvent={removeEvent} />
 
     </div>
     </Fragment>
