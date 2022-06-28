@@ -7,14 +7,14 @@ As a todo list is a common interview task I decided to take it to another level 
 
 - [ ] Add calendar view
 - [ ] Ability to add daily reminders / delete them
-- [ ] Edit daily reminders
-- [ ] Clicking on a arrow shows the view for previous/next month
+- [ ] Edit daily reminders / 2nd phase
+- [ ] Clicking on a arrow shows the view for previous/next month / 2nd phase
 - [ ] Unit test
 - /calendar will show the main calendar view
 - [ ] Add redux
-- [ ] Add more remainders per day (not just one)
 - [ ] Ability to add a location to the day
-- [ ] Make it accessible
+- [ ] Make it mobile responsive
+- [ ] Work on accesibility
 
 ## Run
 In the project directory, you can run:
