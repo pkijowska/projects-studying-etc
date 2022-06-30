@@ -47,7 +47,7 @@ function MainView(props) {
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} clickedCard={clickedCard}  />)
         }
       </div>
-      <EventView day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
+      <EventView todayNr={today} day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
 
     </div>
     </Fragment>

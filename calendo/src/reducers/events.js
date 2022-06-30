@@ -32,7 +32,7 @@ const eventsReducerDefaultState = [
 "change the current card to current day",
 "Data structure course"]},
     {id: 29, calendarEvent: []},
-    {id: 30, calendarEvent: []},
+    {id: 30, calendarEvent: ["See Elena at the beach"]},
     {id: 31, calendarEvent: ["Go to pilates classes"]
     }
 ];
@@ -58,8 +58,6 @@ export default (state = eventsReducerDefaultState, action) => {
         };
       });
     case 'REMOVE_EVENT':
-    console.log("HER", action)
-
       return state.map(element =>{
           if (element.id === action.day) {
             const afterRemoveArr = element.calendarEvent.filter((el,i)=> i !== action.id)

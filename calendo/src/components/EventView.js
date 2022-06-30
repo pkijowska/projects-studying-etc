@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { addEvent, removeEvent } from '../actions/events';
 
 function EventView(props) {
-  const {day, month, year, } = props;
+  const {day, month, year, todayNr} = props;
   const [addIsClicked, add] = useState(false)
   const [newText, addText] = useState('')
+  const showDay = day ? day : todayNr;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.dispatch(addEvent({id: day, calendarEvent: [newText]}))
+    props.dispatch(addEvent({id: showDay, calendarEvent: [newText]}))
     addText('')
     add(false)
   }
@@ -22,6 +23,7 @@ function EventView(props) {
   const showForm = () => {
     add(true)
   }
+
 
   const editTodo =
   <form  onSubmit={handleSubmit}>
@@ -39,10 +41,10 @@ function EventView(props) {
   return (
     <div className="event-card">
       <h3 className="event-card__heading">TO DO LIST</h3>
-      <h3 className="event-card__date"> {day} {month} {year} </h3>
+      <h3 className="event-card__date"> {showDay} {month} {year} </h3>
       <ul>
         {props.events.map((element) => {
-          if (element.id === day) {
+          if (element.id === showDay) {
             return element.calendarEvent.map((el,i)=> {
               return <li onClick={(e)=>{props.dispatch(removeEvent(i, day))}}>{el} ❌ </li>
             })
