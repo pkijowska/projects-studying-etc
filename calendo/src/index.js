@@ -2,5 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import './styles/components/styles.scss';
+import configureStore from './store/configureStore';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+const store = configureStore();
+
+const state = store.getState();
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+console.log(state, 'stat')
+
+
+ReactDOM.render(jsx, document.getElementById('root'));

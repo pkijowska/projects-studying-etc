@@ -2,53 +2,17 @@ import '../App.css';
 import Card from './Card.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
 import EventView from './EventView';
+import { connect } from 'react-redux';
 import React, { useState, Fragment } from 'react';
 
-function MainView() {
-  const [calendar, setCalendar] = useState([
-    {id: 1, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 2, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 3, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 4, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 5, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 6, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 7, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 8, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 9, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 10, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 11, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 12, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 13, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Work out", "Go  and see grandma", "Book dentist"]},
-    {id: 14, isSubmitted: 'false', open: 'open', calendarEvent: []},
-    {id: 15, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 16, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 17, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Read 50 pages of a book"]},
-    {id: 18, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 19, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 20, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 21, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 22, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 23, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 24, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 25, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 26, isSubmitted: 'false', open: 'open', calendarEvent: []},
-    {id: 27, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Study react"]},
-    {id: 28, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 29, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 30, isSubmitted: 'false', open: 'hidden', calendarEvent: []},
-    {id: 31, isSubmitted: 'false', open: 'hidden', calendarEvent: ["Go to pilates classes"]
-    }
-  ]);
-
+function MainView(props) {
   const [curr, updateNumber] = useState();
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfTheWeek = now.getDay();
   const nameOfTheWeek = weekdays[dayOfTheWeek];
-  // const currentMonth = now.getMonth() + 1;
   const previousMonth = now.getMonth();
-  // const nextMonth = now.getMonth() +2;
   const currYear = now.getFullYear();
   const nameOfMonth = now.toLocaleString(
     'default', {month: 'long'}
@@ -57,62 +21,11 @@ function MainView() {
   let exactDayOfWeek = fullDateOfFirstDayOfMonth.getDay();
   const today = now.getDate();
   const numberOfdaysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
-  console.log(calendar, 'call')
-  const thisMonth = calendar.slice(0, daysinMonth)
-  // setCalendar(thisMonth)
+  const thisMonth = props.events.slice(0, daysinMonth)
 
-  // const setTodos = (data) => {
-  //   let newData = [...calendar];
-  //
-  //   const updatedClendar = newData.map((item, itemIndex) => {
-  //
-  //     if (data.id === (item && item.id)) {
-  //       return newData[itemIndex] = data;
-  //     } else {
-  //       return item
-  //     }
-  //   })
-  //   setCalendar(updatedClendar)
-  //
-  // }
   const clickedCard = (data) => {
     updateNumber(data)
   }
-
-  const removeEvent = (data) => {
-    const removeEvents = calendar.map(element =>{
-      if (element.id === data.day) {
-        const afterRemoveArr = element.calendarEvent.filter((el,i)=> i !== data.i)
-        return {
-          ...element,
-          calendarEvent: afterRemoveArr
-        }
-      } else {
-        return element
-      }
-    })
-    // console.log(removeEvents, 'rem')
-    setCalendar(removeEvents)
-  }
-
-  const addEvent = (data) => {
-    const pushEvents = calendar.map(element =>{
-      if (element.id === curr) {
-        return {
-          ...element,
-          calendarEvent: [
-            ...element.calendarEvent, data
-          ]
-        }
-      } else {
-        return element
-      }
-    })
-    setCalendar(pushEvents)
-    //map and return a new calendar event
-    //use setCalendar
-  }
-
 
   // {[...Array(exactDayOfWeek-1)]
   //   .map((num, i)=> <Card card={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
@@ -131,14 +44,26 @@ function MainView() {
         <DaysOfTheWeek day="Saturday" />
         <DaysOfTheWeek day="Sunday" />
         {thisMonth
-          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
+          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} clickedCard={clickedCard}  />)
         }
       </div>
-      <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth} removeEvent={removeEvent} />
+      <EventView day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
 
     </div>
     </Fragment>
   );
 }
 
-export default MainView
+const mapStateToProps = (state) => {
+  return {
+    events: state.events
+  };
+};
+
+
+export default connect(mapStateToProps)(MainView)
+  //
+  // <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth} removeEvent={removeEvent} />
+  // {thisMonth
+  //   .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
+  // }

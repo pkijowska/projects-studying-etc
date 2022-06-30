@@ -11,7 +11,7 @@ As a todo list is a common interview task I decided to take it to another level 
 - [ ] Clicking on a arrow shows the view for previous/next month / 2nd phase
 - [ ] Unit test
 - /calendar will show the main calendar view
-- [ ] Add redux
+- [ ] Add state management redux
 - [ ] Ability to add a location to the day
 - [ ] Make it mobile responsive
 - [ ] Work on accesibility
