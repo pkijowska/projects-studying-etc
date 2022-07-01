@@ -13,8 +13,18 @@
   margin-bottom: 2px;
   background: white;
 
+  &--current {
+    background: lightgrey;
+  }
+
+
+
   &__details {
     display: block;
+
+    &-number {
+      font-size: small;
+    }
   }
 
   &-number {
@@ -51,7 +61,7 @@
 }
 
 .card-today {
-  background-color: orange;
+  background-color: #F36969;
   padding: 0.7rem;
   border-radius: 90%;
   font-family: "Architects Daughter", cursive;
@@ -105,6 +115,11 @@ ul {
 
   &__date {
     text-align: center;
+
+    &-shake {
+   animation: shakeCart .4s ease-in-out forwards;
+   }
+
   }
 
   &__heading {
@@ -151,6 +166,20 @@ ul {
   }
 }
 
+@keyframes shakeCart {
+  25% {
+    transform:translateX(6px)
+  }
+  50% {
+    transform:translateX(-4px);
+  }
+  75% {
+    transform:translateX(2px);
+  }
+  100% {
+    transform:translateX(0);
+  }
+}
 
 form input {
   box-sizing: border-box;
@@ -164,4 +193,9 @@ form input {
   font-size: 1.2rem;
   color: hsla(260, 2%, 25%, 0.7);
   min-width: 80%;
+}
+
+.card:focus  {
+  box-shadow:0px 0px 0px 4px #F36969 inset;
+
 }

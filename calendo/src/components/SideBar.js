@@ -1,13 +1,15 @@
 import '../App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addEvent, removeEvent } from '../actions/events';
 
-function EventView(props) {
+function SideBar(props) {
   const {day, month, year, todayNr} = props;
   const [addIsClicked, add] = useState(false)
   const [newText, addText] = useState('')
+  const [clicked, isClicked] = useState(false)
   const showDay = day ? day : todayNr;
+  console.log(props.clicked)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,8 +26,11 @@ function EventView(props) {
     add(true)
   }
 
+  // useEffect(()=> {
+  //   isClicked(props.clicked)
+  // }, [clicked])
 
-  const editTodo =
+  const addNewEventForm =
   <form  onSubmit={handleSubmit}>
    {<div className={`todo `}>
       <input
@@ -41,17 +46,17 @@ function EventView(props) {
   return (
     <div className="event-card">
       <h3 className="event-card__heading">TO DO LIST</h3>
-      <h3 className="event-card__date"> {showDay} {month} {year} </h3>
+      <h3 className={`event-card__date event-card__date-shake ${clicked}`}> {showDay} {month} {year} </h3>
       <ul>
         {props.events.map((element) => {
           if (element.id === showDay) {
             return element.calendarEvent.map((el,i)=> {
-              return <li onClick={(e)=>{props.dispatch(removeEvent(i, day))}}>{el} ❌ </li>
+              return <li onClick={(e)=>{props.dispatch(removeEvent(i, day))}}>{el} <button>❌</button> </li>
             })
           }
         })}
       </ul>
-      {  editTodo}
+      { addNewEventForm }
     </div>
   )
 }
@@ -63,4 +68,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps)(EventView);
+export default connect(mapStateToProps)(SideBar);

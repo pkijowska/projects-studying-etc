@@ -1,7 +1,7 @@
 import '../App.css';
 import Card from './Card.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
-import EventView from './EventView';
+import SideBar from './SideBar';
 import { connect } from 'react-redux';
 import React, { useState, Fragment } from 'react';
 
@@ -24,6 +24,7 @@ function MainView(props) {
   const thisMonth = props.events.slice(0, daysinMonth)
 
   const clickedCard = (data) => {
+    console.log('hey')
     updateNumber(data)
   }
 
@@ -47,7 +48,7 @@ function MainView(props) {
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} clickedCard={clickedCard}  />)
         }
       </div>
-      <EventView todayNr={today} day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
+      <SideBar clicked={curr} todayNr={today} day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
 
     </div>
     </Fragment>
