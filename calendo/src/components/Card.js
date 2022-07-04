@@ -16,7 +16,7 @@ function Card(props) {
     <div tabindex="0" onClick={handleClick} className={isActive ? "card card--current" : "card"}>
       <div className="card__details">
         <p className="center">{displayNumber}</p>
-        <span className="card__details-number">{calendarEvent.length ? <p>{'💡'.repeat(calendarEvent.length)} </p> : "" } </span>
+      <p className="card__details-number"> {calendarEvent.length ? '.'.repeat(calendarEvent.length) : "" }</p>
       </div>
     </div>
   )

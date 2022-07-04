@@ -6,12 +6,13 @@
   height: 100px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: inherit;
   font-family: 'Dancing Script', cursive;
   font-size: 20px;
   margin-right: 2px;
   margin-bottom: 2px;
   background: white;
+  position: relative;
 
   &--cross {
   width: 120px;
@@ -32,10 +33,15 @@
 
 
   &__details {
-    display: block;
+    display: flex;
 
     &-number {
-      font-size: small;
+      font-size: xxx-large;
+      margin: 0;
+      color: #F36969;
+      top: 53px;
+      right: 0px;
+      position: absolute;
     }
   }
 
@@ -208,5 +214,5 @@ form input {
 }
 
 .card:focus  {
-  box-shadow:0px 0px 0px 4px #F36969 inset;
+  box-shadow:0px 10px 0px 0px #F36969 inset;
 }
