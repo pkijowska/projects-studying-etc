@@ -1,6 +1,6 @@
-# Inspired by:
+# Pure react calendar, without using libraries:
 Saw this challenge somewhere on github... https://github.com/Jobsity/ReactChallenge
-As a todo list is a common interview task I decided to take it to another level and create a calendar where you can add a new event and see the monthly snapshot of a todo list.
+As a todo list is a common interview task I decided to take it to another level and create a calendar where you can add a new event and see the monthly snapshot of a todo list. The goal was not to use any libraries such as momentjs and using js date object.
 
 
 #### Plan
