@@ -7,13 +7,11 @@ function SideBar(props) {
   const {day, month, year, todayNr} = props;
   const [addIsClicked, add] = useState(false)
   const [newText, addText] = useState('')
-  const [clicked, isClicked] = useState(false)
   const showDay = day ? day : todayNr;
-  console.log(props.clicked)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.dispatch(addEvent({id: showDay, calendarEvent: [newText]}))
+    props.dispatch(addEvent({id: showDay, calendarEvent: [newText], month:month}))
     addText('')
     add(false)
   }
@@ -25,6 +23,8 @@ function SideBar(props) {
   const showForm = () => {
     add(true)
   }
+
+  console.log(props,'props')
 
   // useEffect(()=> {
   //   isClicked(props.clicked)
@@ -46,12 +46,12 @@ function SideBar(props) {
   return (
     <div className="event-card">
       <h3 className="event-card__heading">TO DO LIST</h3>
-      <h3 className={`event-card__date event-card__date-shake ${clicked}`}> {showDay} {month} {year} </h3>
+      <h3 className={`event-card__date event-card__date-shake `}> {showDay} {month} {year} </h3>
       <ul>
         {props.events.map((element) => {
           if (element.id === showDay) {
             return element.calendarEvent.map((el,i)=> {
-              return <li onClick={(e)=>{props.dispatch(removeEvent(i, day))}}>{el} <button>❌</button> </li>
+              return <li onClick={(e)=>{props.dispatch(removeEvent(i, day, month))}}>{el} <button>❌</button> </li>
             })
           }
         })}
@@ -61,7 +61,7 @@ function SideBar(props) {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, month) => {
   return {
     events: state.events
   };

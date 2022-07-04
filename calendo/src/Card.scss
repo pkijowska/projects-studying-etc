@@ -13,6 +13,18 @@
   margin-bottom: 2px;
   background: white;
 
+  &--cross {
+  width: 120px;
+  height:100px;
+  background:
+            linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#fff 45%,#fff 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),
+            linear-gradient(135deg, #fafafa 0%,#fafafa 43%,#fff 45%,#fff 55%,#fafafa 57%,#fafafa 100%);
+  }
+
+  &__secondary {
+    color: lightgrey;
+  }
+
   &--current {
     background: lightgrey;
   }
@@ -62,7 +74,7 @@
 
 .card-today {
   background-color: #F36969;
-  padding: 0.7rem;
+  padding: 0 1rem;
   border-radius: 90%;
   font-family: "Architects Daughter", cursive;
   width: min-content;
@@ -197,5 +209,4 @@ form input {
 
 .card:focus  {
   box-shadow:0px 0px 0px 4px #F36969 inset;
-
 }

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 function Card(props) {
   const [isActive, setIsActive] = useState(null);
+
   const { id, calendarEvent } = props.card;
 
   const handleClick = () => {
@@ -15,7 +16,7 @@ function Card(props) {
     <div tabindex="0" onClick={handleClick} className={isActive ? "card card--current" : "card"}>
       <div className="card__details">
         <p className="center">{displayNumber}</p>
-        <span className="card__details-number">{calendarEvent.length ? <p>💡{calendarEvent.length} event </p> : "" } </span>
+        <span className="card__details-number">{calendarEvent.length ? <p>{'💡'.repeat(calendarEvent.length)} </p> : "" } </span>
       </div>
     </div>
   )

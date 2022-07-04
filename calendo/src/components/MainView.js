@@ -1,5 +1,6 @@
 import '../App.css';
 import Card from './Card.js';
+import CardPreviousMonth from './CardPreviousMonth.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
 import SideBar from './SideBar';
 import { connect } from 'react-redux';
@@ -24,13 +25,8 @@ function MainView(props) {
   const thisMonth = props.events.slice(0, daysinMonth)
 
   const clickedCard = (data) => {
-    console.log('hey')
     updateNumber(data)
   }
-
-  // {[...Array(exactDayOfWeek-1)]
-  //   .map((num, i)=> <Card card={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
-  // }
 
   return (
     <Fragment>
@@ -44,6 +40,8 @@ function MainView(props) {
         <DaysOfTheWeek day="Friday" />
         <DaysOfTheWeek day="Saturday" />
         <DaysOfTheWeek day="Sunday" />
+        {[...Array(exactDayOfWeek-1).keys()].reverse().map((num, i)=> <CardPreviousMonth cardNumber={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
+         }
         {thisMonth
           .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} clickedCard={clickedCard}  />)
         }
@@ -62,9 +60,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps)(MainView)
-  //
-  // <EventView calendar={calendar} addEvent={addEvent} day={curr}  year={now.getFullYear()}  month={nameOfMonth} removeEvent={removeEvent} />
-  // {thisMonth
-  //   .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} calendar={calendar} clickedCard={clickedCard}  />)
-  // }
+export default connect(mapStateToProps)(MainView);
