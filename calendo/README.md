@@ -5,19 +5,19 @@ As a todo list is a common interview task I decided to take it to another level 
 
 #### Plan
 
-- [ x ] Add calendar view
-- [ x ] Ability to add daily reminders / delete them
-- [ ] Clicking on a arrow shows the view for previous/next month
-- [ x ] Jest tests
-- [ x ] /calendar will show the main calendar view
-- [ x ] Add state management redux
-- [ ] Ability to add a location to the day
-- [ ] Make it mobile responsive
-- [ ] Work on accesibility
+- [x] Add calendar view
+- [x] Ability to add daily reminders / delete them
+- [ ] Clicking on a arrow shows the view for previous/next month -> 2nd phase
+- [x] Jest tests
+- [x] /calendar will show the main calendar view
+- [x] Add state management redux
+- [ ] Ability to add a location to the day -2nd phase
+- [ ] Make it mobile responsive -2nd phase
+- [ ] Work on accesibility -2nd phase
 
 #### Current look
 
-## ![Image](https://user-images.githubusercontent.com/34060186/177212437-f2e04d36-0ce0-433b-8ba1-3ca9f0ac203f.png))
+## ![Image](https://user-images.githubusercontent.com/34060186/177212437-f2e04d36-0ce0-433b-8ba1-3ca9f0ac203f.png)
 
 In the project directory, you can run:
 ### `npm start`
