@@ -17,7 +17,7 @@ As a todo list is a common interview task I decided to take it to another level 
 
 #### Current look
 
-## ![Image]([Screen Shot 2022-07-04 at 22 11 19](https://user-images.githubusercontent.com/34060186/177212437-f2e04d36-0ce0-433b-8ba1-3ca9f0ac203f.png))
+## ![Image][Screen Shot 2022-07-04 at 22 11 19](https://user-images.githubusercontent.com/34060186/177212437-f2e04d36-0ce0-433b-8ba1-3ca9f0ac203f.png)
 
 In the project directory, you can run:
 ### `npm start`
