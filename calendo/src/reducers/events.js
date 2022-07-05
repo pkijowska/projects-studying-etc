@@ -46,12 +46,7 @@ export default (state = eventsReducerDefaultState, action) => {
     case 'ADD_EVENT':
       // console.log(state, state[action.event.month],'stat')
       return state.map((event) => {
-        console.log(event, 'EVENT')
         if (event.id === action.event.id) {
-          console.log('LOGGIN',{...event,
-          calendarEvent: [
-            ...event.calendarEvent, action.event.calendarEvent
-          ]})
           return {
             ...event,
             calendarEvent: [

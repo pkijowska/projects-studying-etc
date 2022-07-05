@@ -150,17 +150,8 @@ ul {
   }
 
   &__button {
-    // width: 50%;
-    // filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.05));
-    // transform: scale(1);
-    // transition: all .1s ease-in;
-    // margin-bottom: 1rem;
     padding: 0;
     border: none;
-    // font-family: "Architects Daughter", cursive;
-    // text-decoration: none;
-    // padding-bottom: 3px;
-    // border-radius: 5px;
 
     span {
       background: #f1f5f8;
@@ -181,21 +172,6 @@ ul {
   }
   100% {
     box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0);
-  }
-}
-
-@keyframes shakeCart {
-  25% {
-    transform:translateX(6px)
-  }
-  50% {
-    transform:translateX(-4px);
-  }
-  75% {
-    transform:translateX(2px);
-  }
-  100% {
-    transform:translateX(0);
   }
 }
 

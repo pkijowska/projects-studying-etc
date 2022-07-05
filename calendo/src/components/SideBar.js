@@ -51,7 +51,7 @@ function SideBar(props) {
         {props.events.map((element) => {
           if (element.id === showDay) {
             return element.calendarEvent.map((el,i)=> {
-              return <li onClick={(e)=>{props.dispatch(removeEvent(i, day, month))}}>{el} <button>❌</button> </li>
+              return <li onClick={(e)=>{props.dispatch(removeEvent({id: i, day, month}))}}>{el} <button>❌</button> </li>
             })
           }
         })}
