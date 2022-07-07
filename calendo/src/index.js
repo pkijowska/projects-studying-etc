@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode }  from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import './styles/components/styles.scss';
@@ -10,11 +10,10 @@ const store = configureStore();
 const state = store.getState();
 
 const jsx = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
 );
-console.log(state, 'stat')
 
 
 ReactDOM.render(jsx, document.getElementById('root'));

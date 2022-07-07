@@ -1,5 +1,7 @@
 import '../Card.scss';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { storeCurrentDay } from '../actions/day';
 
 function Card(props) {
   const [isActive, setIsActive] = useState(null);
@@ -8,7 +10,10 @@ function Card(props) {
 
   //can we add this to the reducer?
   const handleClick = () => {
-    props.clickedCard(id)
+    // props.clickedCard(id)
+    props.dispatch(storeCurrentDay(id))
+    console.log(props, 'propsyk')
+
   }
 
   const displayNumber = props.todayNr === id ? <p className="card-today">{id}</p> : <p className="card-number">{id}</p>;
@@ -24,4 +29,10 @@ function Card(props) {
   )
 }
 
-export default Card;
+const mapStateToProps = (state, month) => {
+  return {
+    currentDay: state.day
+  };
+};
+
+export default connect(mapStateToProps)(Card);

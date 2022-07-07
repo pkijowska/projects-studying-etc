@@ -68,7 +68,7 @@ export default (state = eventsReducerDefaultState, action) => {
           } else {
             return element
           }
-        })
+        })  
     default:
       return state;
   }
