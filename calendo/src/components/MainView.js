@@ -8,12 +8,6 @@ import React, { useState, Fragment } from 'react';
 
 function MainView(props) {
 
-  const [curr, updateNumber] = useState();
-  // const [obj, changeObj] = useState({
-  //   time: new Date(),
-  //   tekjl: this.time
-  // })
-  // console.log(obj.bind(this)(), obj)
   const now = new Date();
   const daysinMonth = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
   const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -30,10 +24,6 @@ function MainView(props) {
   const numberOfdaysInPreviousMonth = new Date(currYear, previousMonth, 0).getDate();
   const thisMonth = props.events.slice(0, daysinMonth)
 
-  const clickedCard = (data) => {
-    updateNumber(data)
-  }
-
   return (
     <Fragment>
     <h1 className="center">{nameOfMonth}, {currYear}</h1>
@@ -49,11 +39,10 @@ function MainView(props) {
         {[...Array(exactDayOfWeek-1).keys()].reverse().map((num, i)=> <CardPreviousMonth cardNumber={num} prevMonthCount={numberOfdaysInPreviousMonth} num={exactDayOfWeek-1} iteration={i} />)
          }
         {thisMonth
-          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek} clickedCard={clickedCard}  />)
+          .map((num, i)=> <Card card={num} todayNr={today} year={now.getFullYear()} nameOfMonth={nameOfMonth} num={i} today={nameOfTheWeek}  />)
         }
       </div>
-      <SideBar clicked={curr} todayNr={today} day={curr}  year={now.getFullYear()}  month={nameOfMonth}  />
-
+      <SideBar todayNr={today} year={now.getFullYear()}  month={nameOfMonth}  />
     </div>
     </Fragment>
   );
@@ -64,6 +53,5 @@ const mapStateToProps = (state) => {
     events: state.events
   };
 };
-
 
 export default connect(mapStateToProps)(MainView);

@@ -19,7 +19,3 @@ export const removeEvent = ({id, day, month}) => ({
     month
   }
 })
-
-//dispatch action to remember the current month you are clicking on
-//add tests
-//clean code
