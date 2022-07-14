@@ -17,8 +17,6 @@
   &--cross {
   display: flex;
   align-items: center;
-  width: 120px;
-  height:100px;
   background:
             linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#fff 45%,#fff 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),
             linear-gradient(135deg, #fafafa 0%,#fafafa 43%,#fff 45%,#fff 55%,#fafafa 57%,#fafafa 100%);
@@ -69,7 +67,6 @@
 }
 
 .mini-card {
-  border-radius: 10% 10%;
   border: 1px dotted #A7C7E7;
   margin-right: 2px;
   margin-bottom: 2px;

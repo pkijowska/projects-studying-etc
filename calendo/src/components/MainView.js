@@ -4,7 +4,7 @@ import CardPreviousMonth from './CardPreviousMonth.js';
 import DaysOfTheWeek from './DaysOfTheWeek';
 import SideBar from './SideBar';
 import { connect } from 'react-redux';
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 
 function MainView(props) {
 

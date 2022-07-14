@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { storeCurrentDay } from '../actions/day';
 
 function Card(props) {
-  const [isActive, setIsActive] = useState(null);
   const { id, calendarEvent } = props.card;
   const handleClick = () => {
     props.dispatch(storeCurrentDay(id))

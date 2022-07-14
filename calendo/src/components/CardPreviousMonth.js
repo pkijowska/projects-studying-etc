@@ -2,7 +2,7 @@ import '../Card.scss';
 import React, { useState } from 'react';
 
 function CardPreviousMonth(props) {
-  const { prevMonthCount, iteration, cardNumber } = props;
+  const { prevMonthCount, cardNumber } = props;
   return(
     <div className="card card--cross">
       <div className="card__details">

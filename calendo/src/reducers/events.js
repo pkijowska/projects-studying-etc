@@ -59,6 +59,7 @@ export default (state = eventsReducerDefaultState, action) => {
       });
     case 'REMOVE_EVENT':
       return state.map(element =>{
+        console.log('stat', element, action)
           if (element.id === action.day) {
             const afterRemoveArr = element.calendarEvent.filter((el,i)=> i !== action.id)
             return {
@@ -68,7 +69,7 @@ export default (state = eventsReducerDefaultState, action) => {
           } else {
             return element
           }
-        })  
+        })
     default:
       return state;
   }
