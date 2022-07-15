@@ -7,7 +7,9 @@ function Card(props) {
   const { id, calendarEvent } = props.card;
   const handleClick = () => {
     props.dispatch(storeCurrentDay(id))
+    console.log(props, 'props')
   }
+
   const displayNumber = props.todayNr === id ? <p className="card-today">{id}</p> : <p className="card-number">{id}</p>;
 
   return(
@@ -22,7 +24,7 @@ function Card(props) {
 
 const mapStateToProps = (state, month) => {
   return {
-    currentDay: state.day
+    currentDay: state.currentDay
   };
 };
 

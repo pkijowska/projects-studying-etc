@@ -23,6 +23,7 @@ function SideBar(props) {
    {<div className="todo">
       <input
         placeholder="Type a new event"
+        className="event-card__form"
             value={newText}
             onChange={handleTodo}
           />
@@ -39,7 +40,7 @@ function SideBar(props) {
         {props.events.map((element) => {
           if (element.id === showDay) {
             return element.calendarEvent.map((el,i)=> {
-              return <li onClick={(e)=>{props.dispatch(removeEvent({id: i, currentDay, month}))}}>{el} <button>❌</button> </li>
+              return <li onClick={(e)=>{props.dispatch(removeEvent({id: i, currentDay: 1, month}))}}>{el} <button>❌</button> </li>
             })
           }
         })}

@@ -139,6 +139,20 @@ ul {
 
   }
 
+  &__form {
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 4px blue;
+    font-family: "Architects Daughter", cursive;
+    font-size: 1.2rem;
+    color: hsla(260, 2%, 25%, 0.7);
+    min-width: 80%;
+  }
+
   &__heading {
    transform: rotate(2deg);
    padding: 0.2rem 1.2rem;
@@ -172,20 +186,6 @@ ul {
   100% {
     box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0);
   }
-}
-
-form input {
-  box-sizing: border-box;
-  background-color: transparent;
-  padding: 0.7rem;
-  border-bottom-right-radius: 15px 3px;
-  border-bottom-left-radius: 3px 15px;
-  border: solid 3px transparent;
-  border-bottom: dashed 4px blue;
-  font-family: "Architects Daughter", cursive;
-  font-size: 1.2rem;
-  color: hsla(260, 2%, 25%, 0.7);
-  min-width: 80%;
 }
 
 .card:focus  {
