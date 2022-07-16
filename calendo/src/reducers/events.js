@@ -59,7 +59,6 @@ export default (state = eventsReducerDefaultState, action) => {
     case 'REMOVE_EVENT':
       return state.map(element =>{
           if (element.id === action.event.day) {
-            console.log(element.id,action.event.day, element.calendarEvent)
             const afterRemoveArr = element.calendarEvent.filter((el,i)=> i !== action.event.id)
             return {
               ...element,

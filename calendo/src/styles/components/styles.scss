@@ -1,2 +1,195 @@
 @import '../base/settings';
 @import '../base/base';
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.card {
+  border: 1px dotted grey;
+  width: 120px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: inherit;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  background: white;
+  position: relative;
+
+  &--cross {
+  display: flex;
+  align-items: center;
+  background:
+            linear-gradient(45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 43%,#fff 45%,#fff 55%,rgba(0,0,0,0) 57%,rgba(0,0,0,0) 100%),
+            linear-gradient(135deg, #fafafa 0%,#fafafa 43%,#fff 45%,#fff 55%,#fafafa 57%,#fafafa 100%);
+  }
+
+  &__secondary {
+    color: lightgrey;
+  }
+
+  &--current {
+    background: lightgrey;
+  }
+
+
+
+  &__details {
+    display: flex;
+
+    &-number {
+      font-size: 70px;
+      margin: 0;
+      color: #F36969;
+      top: 30px;
+      left: 0px;
+      position: absolute;
+    }
+  }
+
+  &-number {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-today {
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 980px;
+}
+
+.mini-card {
+  border: 1px dotted #A7C7E7;
+  margin-right: 2px;
+  margin-bottom: 2px;
+  width: 120px;
+  height: 20px;
+  background: #A7C7E7;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.card-today {
+  background-color: #F36969;
+  padding: 0 1rem;
+  border-radius: 90%;
+  font-family: "Architects Daughter", cursive;
+  width: min-content;
+}
+
+form {
+  width: min-content;
+}
+
+.todo {
+  display: flex;
+
+  &__submit-button {
+    width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+ // list-style-type: '💡';
+}
+
+.event-card {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  max-width: 300px;
+  background: white;
+  background-image: radial-gradient(lightblue 10%, transparent 0);
+  background-size: 25px 25px;
+  border-radius: 20px;
+  margin: 1rem;
+  box-shadow: 4px 3px 7px 2px #00000040;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: "Architects Daughter", cursive;
+  font-size: 2rem;
+
+  &__date {
+    text-align: center;
+
+    &-shake {
+   animation: shakeCart .4s ease-in-out forwards;
+   }
+
+  }
+
+  &__form {
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 4px blue;
+    font-family: "Architects Daughter", cursive;
+    font-size: 1.2rem;
+    color: hsla(260, 2%, 25%, 0.7);
+    min-width: 80%;
+  }
+
+  &__heading {
+   transform: rotate(2deg);
+   padding: 0.2rem 1.2rem;
+   border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+   background-color: #A7C7E7;
+   font-size: 2rem;
+   text-align: center;
+  }
+
+  &__button {
+    padding: 0;
+    border: none;
+
+    span {
+      background: #f1f5f8;
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: 2px solid hsl(198, 1%, 29%);
+    }
+    &:hover {
+      animation: pulseLike 2s infinite;
+    }
+  }
+}
+
+@keyframes pulseLike {
+  0% {
+    box-shadow: 0 0 0 0px rgba(59, 89, 152, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0);
+  }
+}
+
+.card:focus  {
+  box-shadow:0px 10px 0px 0px #F36969 inset;
+}

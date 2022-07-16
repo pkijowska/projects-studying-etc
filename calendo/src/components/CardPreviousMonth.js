@@ -1,4 +1,3 @@
-import '../Card.scss';
 import React, { useState } from 'react';
 
 function CardPreviousMonth(props) {

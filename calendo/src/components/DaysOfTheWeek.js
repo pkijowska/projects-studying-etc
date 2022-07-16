@@ -1,5 +1,3 @@
-import '../Card.scss';
-
 function DaysOfTheWeek(props) {
 
   return(

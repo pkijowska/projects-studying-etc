@@ -1,4 +1,3 @@
-import '../Card.scss';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { storeCurrentDay } from '../actions/day';
