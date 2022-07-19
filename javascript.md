@@ -522,3 +522,52 @@ only depends on the parameters provided, doesnt rely on for example other variab
 
 **selection sort**
 similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
+
+**insertion sort**
+start by picking the second element in the array
+build up the sort by gradually creating a larger half whichi is always sorted
+
+ function inserSort(arr) {
+	 for (var i = 0; i< arr.length; i++) {
+		 var currentVal = arr[i];
+		 for (var j = i-1; j >=0; j--) {
+			 arr[j+1] = arr[j]
+		 }
+		 arr[j+1]= currentVal;
+	 }
+	 return arr
+ }
+
+ or
+ function insertionSort(arr){
+    //Start from the second element.
+    for(let i = 1; i < arr.length;i++){
+
+        //Go through the elements behind it.
+        for(let j = i - 1; j > -1; j--){
+
+            //value comparison using ascending order.
+            if(arr[j + 1] < arr[j]){
+
+                //swap
+                [arr[j+1],arr[j]] = [arr[j],arr[j + 1]];
+
+            }
+        }
+    };
+
+  return arr;
+}
+
+console.log(insertionSort([2,1,9,76,4]));
+
+
+IF YOU NEED DATA COMING LIVE AND you want to sort the data then this is a good algorithm.
+In terms of performance insertion sort is similar to bubble sort
+They excel very good with smaller data
+
+**merge sort**
+[8,9,2,3]
+will split into 2 element array and compare the elements.
+[8,9] [2,3]
+will sort them and merge and compare
