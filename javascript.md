@@ -472,6 +472,8 @@ HTTP was invented alongside HTML to create the first interactive, text-based web
 
 As a request-response protocol, HTTP gives users a way to interact with web resources such as HTML files by transmitting hypertext messages between clients and servers. HTTP clients generally use Transmission Control Protocol (TCP) connections to communicate with servers.
 
+HTTP requests and responses, and they carry information about the client browser, the requested page, the server, and more.
+
 **network protocol**
 it is a style of communication over a network. There are protocols for sending email, fetching email, sharing files etc.
 HTTP is a protocol for retrieving named resources (chunks of information, such as web pages or pictures)
@@ -571,3 +573,27 @@ They excel very good with smaller data
 will split into 2 element array and compare the elements.
 [8,9] [2,3]
 will sort them and merge and compare
+
+**CSS Specificity**
+<div id="baz" class="bar">
+  <div id="foo" class="bip bop">Hello</div>
+</div>  
+
+the css code for if FOO will be taking precedence as it is tatgerting the element and it overrides the parent inherited element.
+
+**Request Headers**
+The HTTP header is part of the Hypertext Transfer Protocol (HTTP) and transmits additional information during HTTP requests or responses. In addition to the data that is delivered to a browser by the web server of the called website, server and browser exchange meta information about the document via the HTTP header.
+
+An HTTP request contains a header area with information such as the date of the request, the referrer, or the preferred language. The HTTP response also contains a header field in which the server sends its information to the user's browser. This information exchange is usually invisible to the end user.
+
+HTTP headers include fields which themselves consist of one line. Each line contains a name/value pair - called key-value pair - separated by a colon and is terminated by a line break.
+
+HTTP HEADERS:
+for example
+date,
+cookie,
+content type,
+accept a language
+
+**relative path etc**
+https://www.w3schools.com/html/html_filepaths.asp
