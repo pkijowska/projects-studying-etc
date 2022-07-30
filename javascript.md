@@ -574,6 +574,41 @@ will split into 2 element array and compare the elements.
 [8,9] [2,3]
 will sort them and merge and compare
 
+function merge(arr1, arr2){
+    let results = [];
+    let i = 0;
+    let j = 0;
+    while(i < arr1.length && j < arr2.length){
+        if(arr2[j] > arr1[i]){
+            results.push(arr1[i]);
+            i++;
+        } else {
+            results.push(arr2[j])
+            j++;
+        }
+    }
+    while(i < arr1.length) {
+        results.push(arr1[i])
+        i++;
+    }
+    while(j < arr2.length) {
+        results.push(arr2[j])
+        j++;
+    }
+    return results;
+}
+
+// Recrusive Merge Sort
+function mergeSort(arr){
+    if(arr.length <= 1) return arr;
+    let mid = Math.floor(arr.length/2);
+    let left = mergeSort(arr.slice(0,mid));
+    let right = mergeSort(arr.slice(mid));
+    return merge(left, sright);
+}
+
+mergeSort([10,24,76,73,2,5])
+
 **CSS Specificity**
 <div id="baz" class="bar">
   <div id="foo" class="bip bop">Hello</div>
@@ -597,3 +632,10 @@ accept a language
 
 **relative path etc**
 https://www.w3schools.com/html/html_filepaths.asp
+
+**accessibility**
+breadcrumbs
+alt and src
+semantic html
+aria
+color contrast
