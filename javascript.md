@@ -672,3 +672,16 @@ function radixSort(nums){
 }
 
 radixSort([23,345,5467,12,2345,9852])
+
+**single linked list**
+collection of nodes, no indexes, so inserting will be less expensive
+class Node {
+	constructor(val){
+		this.val = val;
+		this.next = next;
+	}
+}
+
+var first = new Node('Hi')
+first.next = new Node('there')
+first.next.next = new Node('ther')
