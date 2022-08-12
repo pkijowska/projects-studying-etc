@@ -687,6 +687,7 @@ first.next = new Node('there')
 first.next.next = new Node('ther')
 
 **js promises**
+<!-- https://javascript.info/promise-basics -->
 
 <!-- function wait(sec) {
   return new Promise(function (resolve, reject) {
