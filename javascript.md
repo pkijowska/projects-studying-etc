@@ -685,3 +685,45 @@ class Node {
 var first = new Node('Hi')
 first.next = new Node('there')
 first.next.next = new Node('ther')
+
+**js promises**
+
+<!-- function wait(sec) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve("done");
+    }, sec);
+  });
+}
+function createImage(img) {
+  return new Promise(function (resolve, reject) {
+    const imge = document.createElement("img");
+    imge.src = img;
+
+    imge.addEventListener("load", function () {
+      resolve(document.body.appendChild(imge));
+    });
+    imge.addEventListener("error", function () {
+      reject("error!!");
+    });
+  });
+}
+var curr;
+createImage(
+  "https://images.unsplash.com/photo-1660241208826-ed0c6b9ee77f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
+)
+  .then((data) => {
+    curr = data;
+    return wait(5000);
+  })
+  .then((e) => {
+    return curr.classList.add("hide");
+  })
+  .then((data) => console.log("finished"))
+  .then( ()=> {
+    createImage(
+      "https://images.unsplash.com/photo-1546268060-2592ff93ee24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3lkbmV5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    )
+  }
+  )
+  .catch((err) => console.log(err + " nooo")); -->
