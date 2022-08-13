@@ -687,6 +687,7 @@ first.next = new Node('there')
 first.next.next = new Node('ther')
 
 **js promises**
+https://www.freecodecamp.org/news/learn-promise-async-await-in-20-minutes/ -> some excercise at the bottom!
 <!-- https://javascript.info/promise-basics -->
 
 <!-- function wait(sec) {
