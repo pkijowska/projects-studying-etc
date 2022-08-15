@@ -729,3 +729,30 @@ createImage(
   }
   )
   .catch((err) => console.log(err + " nooo")); -->
+
+	const arr = [
+  "https://images.unsplash.com/photo-1523608401-53eb5741c1a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHN5ZG5leXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+  "https://images.unsplash.com/photo-1548565495-a692bd1c1d1c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN5ZG5leXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+];
+async function loadAll(arry) {
+  const res = arry.map((el) => {
+    return new Promise(function (resolve, reject) {
+      const imge = document.createElement("img");
+      imge.src = el;
+
+      imge.addEventListener("load", function () {
+        resolve(document.body.appendChild(imge));
+      });
+      imge.addEventListener("error", function () {
+        reject("error!!");
+      });
+    });
+  });
+  console.log(res);
+  Promise.all(res).then((values) => {
+    console.log(values, 'h');
+
+  });
+}
+
+loadAll(arr);
