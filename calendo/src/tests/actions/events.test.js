@@ -20,12 +20,10 @@ test('should remove an event', ()=> {
     day: 4,
     month:'June',
   }
-  const action = removeEvent(event.id, event.day, event.month)
+  const action = removeEvent(event)
 
   expect(action).toEqual({
     type: 'REMOVE_EVENT',
-    id: 1,
-    day: 4,
-    month: "June"
+    event
   })
 })

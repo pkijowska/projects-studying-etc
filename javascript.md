@@ -634,11 +634,17 @@ accept a language
 https://www.w3schools.com/html/html_filepaths.asp
 
 **accessibility**
+https://scottaohara.github.io/accessibility_interview_questions/
 breadcrumbs
 alt and src
 semantic html
 aria
 color contrast
+contrast ratio
+follow the Web Content Accessibility Guidelines
+focusable elements (where the user exactly is)
+it can be clickable with both mouse and keys, and it can be tabbed between (using the tab key on the keyboard).
+when having links underline works well as well as it will change color when hovered or focused
 
 **radix sort**
 function getDigit(num, i) {
@@ -756,3 +762,17 @@ async function loadAll(arry) {
 }
 
 loadAll(arr);
+
+**different sort of tests**
+unit tests
+integration tests
+functional tests
+
+**styled components or css modules**
+https://dev.to/alexsergey/css-modules-vs-css-in-js-who-wins-3n25
+pro styled components: 
+u can use javascript with the code and js logic
+some issues with typescript
+
+pro css modules: 
+loads faster

@@ -34,9 +34,11 @@ test('should succesfully remove an event', ()=> {
 
   const action = {
     type: 'REMOVE_EVENT',
-    id:  0,
-    day: 1,
-    month: 'July'
+    event: {
+      id:  0,
+      day: 1,
+      month: 'July'
+    }
   }
 
   const state = eventsReducer(events, action)

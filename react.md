@@ -40,3 +40,7 @@ _______________________________________________________________________
 why hooks were added?
 - we need lifecycles methods and state in functional components
 - useState will completely change state instead of merging data as in the past
+
+________________________________________________________________________
+Redux:
+https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/checkpoint-2-reactionButtons/?from-embed=&file=/src/features/posts/PostsList.js
