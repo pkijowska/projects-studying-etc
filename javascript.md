@@ -776,3 +776,79 @@ some issues with typescript
 
 pro css modules: 
 loads faster
+
+**what is bind in react**
+https://www.freecodecamp.org/news/this-is-why-we-need-to-bind-event-handlers-in-class-components-in-react-f7ea1a6f93eb/
+
+**door challenge**
+class Door {
+  constructor(){
+    this.state=0;
+    this.direction='neutral';
+    this.paused=false;
+  }
+  open(){
+    this.state++;
+    this.direction='opening';
+  }
+  close(){
+    this.state--;
+    this.direction='closing';
+  }
+  reverse(){
+    if (this.direction=='opening') {
+      this.state--;
+      this.direction='closing';
+    } else {
+      this.state++;
+      this.direction='opening';
+    }
+  }
+  pause(){
+    if (!this.paused) {
+      this.paused=true;
+    } else {
+      this.paused=false;
+      if (this.direction=='opening') {
+        this.state++;
+      } else this.state--;
+    }
+  }
+}
+function door(events) {
+  console.log(events)
+  var a=new Door;
+  var ans='';
+  for (var i=0;i<events.length;i++) {
+    switch (events[i]) {
+      case '.':
+        if (a.state===0||a.state===5||a.paused) {
+          ans+=String(a.state);
+        } else if (a.direction=='opening') {
+          a.open();
+          ans+=String(a.state);
+        } else {
+          a.close();
+          ans+=String(a.state);
+        }
+        break;
+      case 'O':
+        a.reverse();
+        ans+=String(a.state);
+        break;
+      case 'P':
+        if (a.state===0) {
+          a.open();
+          ans+=String(a.state);
+        } else if (a.state===5) {
+          a.close();
+          ans+=String(a.state);
+        } else {
+          a.pause();
+          ans+=String(a.state);
+        }
+        break;
+    }
+  }
+  return ans;
+}
