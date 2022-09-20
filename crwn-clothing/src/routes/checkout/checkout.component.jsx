@@ -1,10 +1,15 @@
 import './checkout.styles.scss';
 import { useContext } from 'react';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import { CartContext } from '../../contexts/cart.context';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectCartTotal, selectIsCartOpen, selectCartCount, selectCartItems } from '../../store/cart/cart.selector';
+
 
 const Checkout = () => {
-  const { cartItems, cartTotal, totalPrice } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartCount);
+  const totalPrice = useSelector(selectCartTotal);
 
   //setupp reducers and pass cartobj. when clicked find that item in the cart and increase or decrease count => {})
 
