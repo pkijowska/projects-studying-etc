@@ -54,11 +54,6 @@ export const CartContext = createContext({
   removeItem: () => {}
 })
 
-const CART_ACTIVE_TYPES = {
-  SET_CART_ITEMS: 'SET_CART_ITEMS',
-  SET_IS_CART_OPEN: 'SET_IS_CART_OPEN'
-}
-
 const INITIAL_STATE = {
   isCartOpen: true,
   cartItems: [],
