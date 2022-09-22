@@ -770,11 +770,11 @@ functional tests
 
 **styled components or css modules**
 https://dev.to/alexsergey/css-modules-vs-css-in-js-who-wins-3n25
-pro styled components: 
+pro styled components:
 u can use javascript with the code and js logic
 some issues with typescript
 
-pro css modules: 
+pro css modules:
 loads faster
 
 **what is bind in react**
@@ -852,3 +852,6 @@ function door(events) {
   }
   return ans;
 }
+
+**example of redux**
+https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/checkpoint-3-postRequests/?from-embed=&file=/src/features/posts/postsSlice.js

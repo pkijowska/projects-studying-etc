@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { selectCartTotal, selectIsCartOpen, selectCartCount, selectCartItems } from '../../store/cart/cart.selector';
 
-import { addCartItem } from '../../store/cart/cart.action';
+import { addItemToCart } from '../../store/cart/cart.action';
 
 
 const ProductCard = ({ product }) => {
@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   const cartItems = useSelector(selectCartItems);
   const { name, price, imageUrl } = product;
 
-  const addProductToCart = () => dispatch(addCartItem(cartItems, product));
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
     <div className='product-card-container'>

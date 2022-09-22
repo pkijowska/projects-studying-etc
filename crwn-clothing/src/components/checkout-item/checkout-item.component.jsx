@@ -2,7 +2,7 @@ import './checkout-item.styles.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector';
-import { addCartItem, increaseCartItems, reduceCount, removeItem } from '../../store/cart/cart.action';
+import { addItemToCart, increaseCartItems, reduceCount, removeItem } from '../../store/cart/cart.action';
 
 const CheckoutItem = ({cartItem}) => {
   const dispatch = useDispatch()

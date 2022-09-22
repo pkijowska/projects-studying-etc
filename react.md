@@ -45,6 +45,14 @@ ________________________________________________________________________
 Redux:
 https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/checkpoint-2-reactionButtons/?from-embed=&file=/src/features/posts/PostsList.js
 
+**ReACT JEST**
+cheatsheet
+https://github.com/sapegin/jest-cheat-sheet
 
 **REACT TEST**
 https://github.com/sudheerj/reactjs-interview-questions
+
+**state management**
+useReducer, useContext, redux
+
+useContext not so goo because of accesibility, but as application scales it is more difficult to useContext, it is not so easy to access all data by all component comparing to redux. Redux will wrap the whole application everywhere.
