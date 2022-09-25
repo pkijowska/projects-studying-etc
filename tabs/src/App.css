@@ -1,0 +1,20 @@
+.App {
+  display: flex;
+}
+
+.nr {
+  border: 1px solid black;
+  padding: 3px
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.tab:has(.active) {
+  background: pink;
+}

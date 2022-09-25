@@ -48,6 +48,8 @@ https://codesandbox.io/s/github/reduxjs/redux-essentials-example-app/tree/checkp
 **ReACT JEST**
 cheatsheet
 https://github.com/sapegin/jest-cheat-sheet
+https://github.com/ZhangMYihua/lesson-34/blob/master/client/src/components/collection-item/collection-item.test.js
+This is a great example how you should test jest stuff
 
 **REACT TEST**
 https://github.com/sudheerj/reactjs-interview-questions
@@ -56,3 +58,6 @@ https://github.com/sudheerj/reactjs-interview-questions
 useReducer, useContext, redux
 
 useContext not so goo because of accesibility, but as application scales it is more difficult to useContext, it is not so easy to access all data by all component comparing to redux. Redux will wrap the whole application everywhere.
+
+**how to filter and sort in react and render nicely, and clear the filtered value**
+https://codesandbox.io/s/muddy-lake-9mruhl?file=/src/App.js

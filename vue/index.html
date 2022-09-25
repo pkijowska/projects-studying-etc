@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  [v-cloak] {
+    display: none
+  }
+
+  .box{
+    width: 100px;
+    height: 100px;
+    background: pink;
+  }
+
+  input {
+    margin: 10px;
+    display: block;
+  }
+</style>
+<body>
+  <div id="app" v-cloak>
+  <login-form />
+  <hr />
+  <!-- v-if or v-show similar but v-show will stay in the markup but will be display none -->
+  <button @click="toggleBox">Show box</button>
+  <div v-if="isVisible" class="box"> </div>
+  <div v-else-if="isVisible2" class="box"> </div>
+  </div>
+</body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  let app = Vue.createApp({
+    data:function() {
+      return {
+        isVisible: false,
+        isVisible2: false
+      }
+    },
+    methods: {
+      toggleBox() {
+        this.isVisible = !this.isVisible;
+      },
+      greet(greeting) {
+        console.log(greeting)
+      }
+    }
+  })
+  app.component('login-form', {
+    template: `
+      <form @submit.prevent="handleSubmit">
+        <h1>{{ title }}</h1>
+        <custom-input type="email" :label="emailLabel" />
+        <custom-input type="password" :label="passwordLabel" />
+        <button>Log in</button>
+      </form>
+    `,
+    components: ['custom-input'],
+    data() {
+      return {
+        title: 'Login Form',
+        email: '',
+        password: '',
+        emailLabel: 'email',
+        passwordLabel: 'password'
+      }
+    },
+    methods: {
+      handleSubmit() {
+        console.log('submitted')
+      }
+    }
+
+  })
+  app.component('custom-input', {
+    template: `
+      <label>
+        {{ label }}
+        <input type="text" />
+      </label>
+    `, props: ['label']
+  })
+  app.mount('#app')
+</script>
+</html>
